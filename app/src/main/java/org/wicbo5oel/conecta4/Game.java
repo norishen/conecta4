@@ -33,6 +33,7 @@ public class Game {
     }
 
 
+    // Debuelve true si tenemos sitio para poner ficha
     public boolean sePuedeColocarFicha(int i, int j){
         boolean out=false;
 
