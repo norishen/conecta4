@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorFondo">#FF002AE0</color>
+    <color name="colorFondo2">#FF7CD5FF</color>
+
+
+    <color name="colorTitleH">#FF000000</color>
+    <color name="colorBTitleH">#FF93BAFF</color>
+    <color name="colorLineaH">#FF000000</color>
+
+    <color name="colorTitleF">#FF000000</color>
+    <color name="colorBTitleF">#7CD5FF</color>
+    <color name="colorLineaF">#FF000000</color>
+
+    <color name="sinFicha">#FFFFFFFF</color>
+    <color name="fichaPlayer1">#FFFFAE00</color>
+    <color name="fichaPlayer2">#FFFF0000</color>
+</resources>

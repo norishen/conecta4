@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">conecta4</string>
+    <string name="titleH">Conecta 4</string>
+    <string name="titleF"></string>
+
+    <string name="bf1">boton01</string>
+    <string name="bf2">boton02</string>
+    <string name="bf3">boton03</string>
+    <string name="bf4">boton04</string>
+    <string name="bf5">boton05</string>
+    <string name="bf6">boton06</string>
+    <string name="bf7">boton07</string>
+
+    <string name="b11">boton11</string>
+    <string name="b12">boton12</string>
+    <string name="b13">boton13</string>
+    <string name="b14">boton14</string>
+    <string name="b15">boton15</string>
+    <string name="b16">boton16</string>
+    <string name="b17">boton17</string>
+
+    <string name="b21">boton21</string>
+    <string name="b22">boton22</string>
+    <string name="b23">boton23</string>
+    <string name="b24">boton24</string>
+    <string name="b25">boton25</string>
+    <string name="b26">boton26</string>
+    <string name="b27">boton27</string>
+
+    <string name="b31">boton31</string>
+    <string name="b32">boton32</string>
+    <string name="b33">boton33</string>
+    <string name="b34">boton34</string>
+    <string name="b35">boton35</string>
+    <string name="b36">boton36</string>
+    <string name="b37">boton37</string>
+
+    <string name="b41">boton41</string>
+    <string name="b42">boton42</string>
+    <string name="b43">boton43</string>
+    <string name="b44">boton44</string>
+    <string name="b45">boton45</string>
+    <string name="b46">boton46</string>
+    <string name="b47">boton47</string>
+
+    <string name="b51">boton51</string>
+    <string name="b52">boton52</string>
+    <string name="b53">boton53</string>
+    <string name="b54">boton54</string>
+    <string name="b55">boton55</string>
+    <string name="b56">boton56</string>
+    <string name="b57">boton57</string>
+
+    <string name="b61">boton61</string>
+    <string name="b62">boton62</string>
+    <string name="b63">boton63</string>
+    <string name="b64">boton64</string>
+    <string name="b65">boton65</string>
+    <string name="b66">boton66</string>
+    <string name="b67">boton67</string>
+</resources>
