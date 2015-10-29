@@ -65,7 +65,7 @@ public class Game {
             tablero[outy][outx] = 2;
     }
 
-
+    // Es solo para sacar el log
     private void log(String text) {
         Log.d("LifeCycleTest", text);
     }
