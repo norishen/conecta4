@@ -48,7 +48,7 @@ public class Game {
         return out;
     }
 
-
+    // Le toca a la maquina Jugar
     public void juegaMaquina(){
         int outy=SIZE_Y, outx=0;
 
