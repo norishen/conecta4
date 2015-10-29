@@ -14,6 +14,8 @@ public class MainActivity extends Activity implements OnClickListener {
     static final int SIZE_Y = 6;
     static final int SIZE_X = 7;
 
+    static int STATUS = 0;
+
     private final int ids [][] = {
             {R.id.b11, R.id.b12, R.id.b13, R.id.b14, R.id.b15, R.id.b16, R.id.b17},
             {R.id.b21, R.id.b22, R.id.b23, R.id.b24, R.id.b25, R.id.b26, R.id.b27},
@@ -42,24 +44,46 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
     public void onClick(View v) {
+        if (STATUS != 0) {
+            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gama.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         int id = ((ImageButton) v).getId();
 
         int col = deIdentificadorAColumna(id);
         int row = deIdentificadorAFila(id);
 
+        // HUMAN
         if ( game.sePuedeColocarFicha( col, row ) ) {
             log("Muevo yo");
-            game.putTablero( col, row, 1);
-
-            log("Ahora le toca a la maquina");
-            game.juegaMaquina();
+            game.putTablero(col, row, 1);
 
             log("Dibujo el tablero");
             dibujarTablero();
-        }
-        else
-            Toast.makeText(this, "Posicion no valida", Toast.LENGTH_LONG).show();
 
+            if (game.comprobarCuatro(1)) {
+                STATUS = 1;
+                Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
+                return;
+            }
+        } else {
+            Toast.makeText(this, "Posicion no valida", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        // COMPUTER
+        log("Ahora le toca a la maquina");
+        game.juegaMaquina();
+
+        log("Dibujo el tablero");
+        dibujarTablero();
+
+        if (game.comprobarCuatro(2)) {
+            STATUS = 2;
+            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
+        }
     }
 
 

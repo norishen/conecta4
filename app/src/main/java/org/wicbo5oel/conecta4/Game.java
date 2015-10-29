@@ -21,7 +21,6 @@ public class Game {
 
     }
 
-
     // Retorna en contenido de la posicion pedida
     public int getTablero(int i, int j) {
         return tablero[i][j];
@@ -64,6 +63,74 @@ public class Game {
         if ( outy != SIZE_Y )
             tablero[outy][outx] = 2;
     }
+
+
+    boolean comprobarCuatro(int player) {
+        if (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player))
+            return true;
+        else
+            return false;
+
+    }
+
+    boolean comprobarFilas(int player) {
+        int fichas = 0;
+        boolean salgo = false;
+
+        for (int y = 0; y < SIZE_Y; y++) {
+            for (int x = 0; x < SIZE_X; x++) {
+                if (tablero[y][x] == player)
+                    fichas++;
+                else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    salgo = true;
+                    break;
+                }
+            }
+
+            if (salgo)
+                break;
+
+            fichas = 0;
+        }
+
+        return salgo;
+    }
+
+
+    boolean comprobarColumnas(int player) {
+        int fichas = 0;
+        boolean salgo = false;
+
+        for (int x = 0; x < SIZE_X; x++) {
+            for (int y = 0; y < SIZE_Y; y++) {
+                if (tablero[y][x] == player)
+                    fichas++;
+                else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    salgo = true;
+                    break;
+                }
+            }
+
+            if (salgo)
+                break;
+
+            fichas = 0;
+        }
+
+        return salgo;
+    }
+
+
+    boolean comprobarDiagonales(int player) {
+        return false;
+    }
+
 
     // Es solo para sacar el log
     private void log(String text) {
