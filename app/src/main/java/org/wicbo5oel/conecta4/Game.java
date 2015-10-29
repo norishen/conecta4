@@ -3,7 +3,7 @@ package org.wicbo5oel.conecta4;
 import android.util.Log;
 
 /**
- * Created by administrador on 27/10/15.
+ * Creado por administrador on 27/10/15.
  */
 public class Game {
     static final int SIZE_Y = 6;
