@@ -75,7 +75,6 @@ public class Game {
 
     boolean comprobarFilas(int player) {
         int fichas = 0;
-        boolean salgo = false;
 
         for (int y = 0; y < SIZE_Y; y++) {
             for (int x = 0; x < SIZE_X; x++) {
@@ -84,25 +83,18 @@ public class Game {
                 else
                     fichas = 0;
 
-                if (fichas >= 4) {
-                    salgo = true;
-                    break;
-                }
+                if (fichas >= 4)
+                    return true;
             }
-
-            if (salgo)
-                break;
-
             fichas = 0;
         }
 
-        return salgo;
+        return false;
     }
 
 
     boolean comprobarColumnas(int player) {
         int fichas = 0;
-        boolean salgo = false;
 
         for (int x = 0; x < SIZE_X; x++) {
             for (int y = 0; y < SIZE_Y; y++) {
@@ -111,23 +103,44 @@ public class Game {
                 else
                     fichas = 0;
 
-                if (fichas >= 4) {
-                    salgo = true;
-                    break;
-                }
+                if (fichas >= 4)
+                    return true;
             }
-
-            if (salgo)
-                break;
 
             fichas = 0;
         }
 
-        return salgo;
+        return false;
     }
 
 
     boolean comprobarDiagonales(int player) {
+        int fichas = 0;
+
+        for (int i = 0; i < 3; i++) {
+            for (int k = 0; k < 6 - i; k++)
+                if (tablero[i + k][k] == player) {
+                    fichas++;
+                    log("Pos1 [ " + Integer.toString(i + k) + "," + Integer.toString(k) + " ]");
+                } else
+                    fichas = 0;
+
+            if (fichas >= 4)
+                return true;
+        }
+
+        for (int j = 1; j < 4; j++) {
+            for (int k = 0; k < 7 - j; k++)
+                if (tablero[k][j + k] == player) {
+                    fichas++;
+                    log("Pos2 [ " + Integer.toString(k) + "," + Integer.toString(j + k) + " ]");
+                } else
+                    fichas = 0;
+
+            if (fichas >= 4)
+                return true;
+        }
+
         return false;
     }
 
