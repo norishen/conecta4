@@ -66,8 +66,10 @@ public class Game {
 
 
     boolean comprobarCuatro(int player) {
-        if (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player))
+        if (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player)) {
+            log("Cumplo alguna condicion");
             return true;
+        }
         else
             return false;
 
@@ -83,8 +85,10 @@ public class Game {
                 else
                     fichas = 0;
 
-                if (fichas >= 4)
+                if (fichas >= 4) {
+                    log("Cumplo comprobarFilas");
                     return true;
+                }
             }
             fichas = 0;
         }
@@ -103,8 +107,10 @@ public class Game {
                 else
                     fichas = 0;
 
-                if (fichas >= 4)
+                if (fichas >= 4) {
+                    log("Cumplo comprobarColumnas");
                     return true;
+                }
             }
 
             fichas = 0;
@@ -117,33 +123,76 @@ public class Game {
     boolean comprobarDiagonales(int player) {
         int fichas = 0;
 
+        // derecha a izquierda
         for (int i = 0; i < 3; i++) {
-            for (int k = 0; k < 6 - i; k++)
-                if (tablero[i + k][k] == player) {
+            for (int k = 0; k < 6 - i; k++) {
+                if (tablero[i + k][k] == player)
                     fichas++;
-                    log("Pos1 [ " + Integer.toString(i + k) + "," + Integer.toString(k) + " ]");
-                } else
+                else
                     fichas = 0;
 
-            if (fichas >= 4)
-                return true;
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_1");
+                    return true;
+                }
+            }
+            fichas = 0;
+
         }
 
+
         for (int j = 1; j < 4; j++) {
-            for (int k = 0; k < 7 - j; k++)
-                if (tablero[k][j + k] == player) {
+            for (int k = 0; k < 7 - j; k++) {
+                if (tablero[k][j + k] == player)
                     fichas++;
-                    log("Pos2 [ " + Integer.toString(k) + "," + Integer.toString(j + k) + " ]");
-                } else
+                else
                     fichas = 0;
 
-            if (fichas >= 4)
-                return true;
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_2");
+                    return true;
+                }
+            }
+            fichas = 0;
         }
 
         return false;
     }
 
+
+/*
+    boolean comprobarDiagonales(int turno) {
+        int MAQUINA = 2;
+        String MAQUINASTR = "1111";
+        String JUGADORSTR = "2222";
+        String cadena = turno == MAQUINA ? MAQUINASTR : JUGADORSTR;
+
+        // derecha a izquierda
+        for (int i = 0; i < 3; i++) {
+            String str = "";
+            for (int k = 0; k < 6 - i; k++)
+                str += Integer.toString(tablero[i + k][k]);
+            if (str.contains(cadena)) {
+                log("Cumplo comprobarDiagonales_1");
+                return true;
+            }
+
+        }
+
+        // Teoricamente el resto
+        for (int j = 1; j < 4; j++) {
+            String str = "";
+            for (int k = 0; k < 7 - j; k++)
+                str += Integer.toString(tablero[k][j + k]);
+            if (str.contains(cadena)) {
+                log("Cumplo comprobarDiagonales_2");
+                return true;
+            }
+        }
+
+        return false;
+    }
+*/
 
     // Es solo para sacar el log
     private void log(String text) {

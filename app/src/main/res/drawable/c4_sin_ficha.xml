@@ -2,17 +2,18 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
 
-<!--
+
     <solid
         android:color="@color/colorBTitleH"/>
--->
 
-    <gradient
-        android:startColor="#FFFFFFFF"
-        android:centerColor="#FFFFFFFF"
-        android:endColor="@color/colorFondo2"
-        android:gradientRadius="50"
-        android:type="radial" />
+    <!--
+        <gradient
+            android:startColor="#FFFFFFFF"
+            android:centerColor="#FFFFFFFF"
+            android:endColor="@color/colorFondo2"
+            android:gradientRadius="50"
+            android:type="radial" />
+    -->
 
     <size
         android:width="@dimen/ficha"

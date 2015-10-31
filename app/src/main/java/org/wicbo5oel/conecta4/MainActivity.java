@@ -1,7 +1,6 @@
 package org.wicbo5oel.conecta4;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,11 +44,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
     public void onClick(View v) {
         if (STATUS != 0) {
-            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gama.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " ha ganado.", Toast.LENGTH_LONG).show();
             return;
         }
 
-        int id = ((ImageButton) v).getId();
+//        int id = ((ImageButton) v).getId();
+        int id = v.getId();
 
         int col = deIdentificadorAColumna(id);
         int row = deIdentificadorAFila(id);

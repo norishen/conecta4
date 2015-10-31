@@ -18,6 +18,7 @@
         android:textSize="@dimen/dimenTitleH"
         android:textColor="@color/colorTitleH"
         android:background="@color/colorBTitleH"
+        android:elevation="4dp"
         android:text="@string/titleH"/>
 
 

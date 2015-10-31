@@ -2,11 +2,15 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
 
-    <gradient
-        android:startColor="#FFFFFFFF"
-        android:endColor="@color/fichaPlayer1"
-        android:gradientRadius="50"
-        android:type="radial" />
+    <solid android:color="@color/fichaPlayer1" />
+
+    <!--
+        <gradient
+            android:startColor="#FFFFFFFF"
+            android:endColor="@color/fichaPlayer1"
+            android:gradientRadius="50"
+            android:type="radial" />
+    -->
 
     <size
         android:width="@dimen/ficha"
