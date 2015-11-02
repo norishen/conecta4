@@ -165,6 +165,8 @@ public class Game {
 
 
         // ------------ SEGUNDA MITAD -------------
+        // Este apunte es solo para estar seguros de la sincronizacion desde otros fuentes
+        // Borrar en cuanto se comprueve que es correcta.
 
 
 

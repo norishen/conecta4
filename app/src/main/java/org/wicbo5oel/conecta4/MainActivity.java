@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.util.Log;
 
+/**
+ * Clase principal
+ */
 public class MainActivity extends Activity implements OnClickListener {
     private Game game;
     static final int SIZE_Y = 6;
