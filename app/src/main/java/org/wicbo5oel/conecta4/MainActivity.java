@@ -56,10 +56,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // HUMAN
         if ( game.sePuedeColocarFicha( col, row ) ) {
-            log("Muevo yo");
+            log("Yo - pos " + Integer.toString(col) + "," + Integer.toString(row));
             game.putTablero(col, row, 1);
-
-            log("Dibujo el tablero");
             dibujarTablero();
 
             if (game.comprobarCuatro(1)) {
@@ -74,10 +72,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
         // COMPUTER
-        log("Ahora le toca a la maquina");
         game.juegaMaquina();
-
-        log("Dibujo el tablero");
         dibujarTablero();
 
         if (game.comprobarCuatro(2)) {

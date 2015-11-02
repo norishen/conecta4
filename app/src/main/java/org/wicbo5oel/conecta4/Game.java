@@ -36,7 +36,6 @@ public class Game {
     public boolean sePuedeColocarFicha(int i, int j){
         boolean out=false;
 
-        log( "Entrada i=" + Integer.toString(i) + " j=" + Integer.toString(j));
         if ( tablero[i][j] == 0 )
             if (i == (SIZE_Y - 1))
                 out = true;
@@ -60,8 +59,10 @@ public class Game {
                     break;
                 }
 
-        if ( outy != SIZE_Y )
+        if (outy != SIZE_Y) {
+            log("Maquina - pos " + Integer.toString(outy) + "," + Integer.toString(outx));
             tablero[outy][outx] = 2;
+        }
     }
 
 
@@ -123,11 +124,34 @@ public class Game {
     boolean comprobarDiagonales(int player) {
         int fichas = 0;
 
-        // derecha a izquierda
+        // ------------ PRIMERA MITAD -------------
+        // de derecha a izquierda
         for (int i = 0; i < 3; i++) {
             for (int k = 0; k < 6 - i; k++) {
+                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(i + k) + "," + Integer.toString(k) + "]");
                 if (tablero[i + k][k] == player)
                     fichas++;
+                else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_0");
+                    return true;
+                }
+            }
+            fichas = 0;
+
+        }
+
+        // de izquierda a derecha
+        fichas = 0;
+        for (int y = 3; y < SIZE_Y; y++) {
+            for (int x = 0; x <= y; x++) {
+                log("Player" + Integer.toString(player) + " - pruebo1 [" + Integer.toString(y - x) + "," + Integer.toString(x) + "]");
+                if (tablero[y - x][x] == player) {
+                    log("Player" + Integer.toString(player) + " - Existe");
+                    fichas++;
+                }
                 else
                     fichas = 0;
 
@@ -137,24 +161,12 @@ public class Game {
                 }
             }
             fichas = 0;
-
         }
 
 
-        for (int j = 1; j < 4; j++) {
-            for (int k = 0; k < 7 - j; k++) {
-                if (tablero[k][j + k] == player)
-                    fichas++;
-                else
-                    fichas = 0;
+        // ------------ SEGUNDA MITAD -------------
 
-                if (fichas >= 4) {
-                    log("Cumplo comprobarDiagonales_2");
-                    return true;
-                }
-            }
-            fichas = 0;
-        }
+
 
         return false;
     }
