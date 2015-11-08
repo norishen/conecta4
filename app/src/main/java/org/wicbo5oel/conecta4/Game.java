@@ -124,26 +124,7 @@ public class Game {
     boolean comprobarDiagonales(int player) {
         int fichas = 0;
 
-        // ------------ PRIMERA MITAD -------------
-        // de derecha a izquierda
-        for (int i = 0; i < 3; i++) {
-            for (int k = 0; k < 6 - i; k++) {
-                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(i + k) + "," + Integer.toString(k) + "]");
-                if (tablero[i + k][k] == player)
-                    fichas++;
-                else
-                    fichas = 0;
-
-                if (fichas >= 4) {
-                    log("Cumplo comprobarDiagonales_0");
-                    return true;
-                }
-            }
-            fichas = 0;
-
-        }
-
-        // de izquierda a derecha
+        // MITAD DERECHA: izquierda a derecha (3,0 4,0 5,0)
         fichas = 0;
         for (int y = 3; y < SIZE_Y; y++) {
             for (int x = 0; x <= y; x++) {
@@ -164,9 +145,63 @@ public class Game {
         }
 
 
-        // ------------ SEGUNDA MITAD -------------
-        // Este apunte es solo para estar seguros de la sincronizacion desde otros fuentes
-        // Borrar en cuanto se comprueve que es correcta.
+        // MITAD EZQUIERDA: izquierda a derecha (3,6 4,6 5,6)
+        fichas = 0;
+        for (int y = 3; y < SIZE_Y; y++) {
+            for (int x = 0; x <= y; x++) {
+                log("Player" + Integer.toString(player) + " - pruebo4 [" + Integer.toString(y - x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
+                if (tablero[y - x][(SIZE_X - 1) - x] == player) {
+                    log("Player" + Integer.toString(player) + " - Existe");
+                    fichas++;
+                } else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_4");
+                    return true;
+                }
+            }
+            fichas = 0;
+        }
+
+
+        // MITAD DERECHA: derecha a izquierda (0,0 1,0 2,0)
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < (SIZE_X - 1) - y; x++) {
+                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(y + x) + "," + Integer.toString(x) + "]");
+                if (tablero[y + x][x] == player)
+                    fichas++;
+                else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_0");
+                    return true;
+                }
+            }
+            fichas = 0;
+
+        }
+
+        // MITAD IZQUIERDA: derecha a izquierda (0,6 1,6 2,6)
+        for (int y = 0; y < 3; y++) {
+            for (int x = 0; x < (SIZE_X - 1) - y; x++) {
+                log("Player" + Integer.toString(player) + " - pruebo3 [" + Integer.toString(y + x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
+                if (tablero[y + x][(SIZE_X - 1) - x] == player)
+                    fichas++;
+                else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_3");
+                    return true;
+                }
+            }
+            fichas = 0;
+
+        }
+
+
 
 
 
