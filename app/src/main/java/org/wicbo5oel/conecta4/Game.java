@@ -124,16 +124,37 @@ public class Game {
     boolean comprobarDiagonales(int player) {
         int fichas = 0;
 
+        //-----------------------------------------------------------------
+        // Primero prueba los diagonales inferiores por posibilidades
+
         // MITAD DERECHA: izquierda a derecha (3,0 4,0 5,0)
-        fichas = 0;
         for (int y = 3; y < SIZE_Y; y++) {
             for (int x = 0; x <= y; x++) {
-                log("Player" + Integer.toString(player) + " - pruebo1 [" + Integer.toString(y - x) + "," + Integer.toString(x) + "]");
+                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(y - x) + "," + Integer.toString(x) + "]");
                 if (tablero[y - x][x] == player) {
                     log("Player" + Integer.toString(player) + " - Existe");
                     fichas++;
                 }
                 else
+                    fichas = 0;
+
+                if (fichas >= 4) {
+                    log("Cumplo comprobarDiagonales_0");
+                    return true;
+                }
+            }
+            fichas = 0;
+        }
+
+
+        // MITAD IZQUIERDA: izquierda a derecha (3,6 4,6 5,6)
+        for (int y = 3; y < SIZE_Y; y++) {
+            for (int x = 0; x <= y; x++) {
+                log("Player" + Integer.toString(player) + " - pruebo1 [" + Integer.toString(y - x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
+                if (tablero[y - x][(SIZE_X - 1) - x] == player) {
+                    log("Player" + Integer.toString(player) + " - Existe");
+                    fichas++;
+                } else
                     fichas = 0;
 
                 if (fichas >= 4) {
@@ -144,38 +165,20 @@ public class Game {
             fichas = 0;
         }
 
-
-        // MITAD EZQUIERDA: izquierda a derecha (3,6 4,6 5,6)
-        fichas = 0;
-        for (int y = 3; y < SIZE_Y; y++) {
-            for (int x = 0; x <= y; x++) {
-                log("Player" + Integer.toString(player) + " - pruebo4 [" + Integer.toString(y - x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
-                if (tablero[y - x][(SIZE_X - 1) - x] == player) {
-                    log("Player" + Integer.toString(player) + " - Existe");
-                    fichas++;
-                } else
-                    fichas = 0;
-
-                if (fichas >= 4) {
-                    log("Cumplo comprobarDiagonales_4");
-                    return true;
-                }
-            }
-            fichas = 0;
-        }
-
+        //-----------------------------------------------------------------
+        // Despues las diagonales superiores
 
         // MITAD DERECHA: derecha a izquierda (0,0 1,0 2,0)
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < (SIZE_X - 1) - y; x++) {
-                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(y + x) + "," + Integer.toString(x) + "]");
+                log("Player" + Integer.toString(player) + " - pruebo2 [" + Integer.toString(y + x) + "," + Integer.toString(x) + "]");
                 if (tablero[y + x][x] == player)
                     fichas++;
                 else
                     fichas = 0;
 
                 if (fichas >= 4) {
-                    log("Cumplo comprobarDiagonales_0");
+                    log("Cumplo comprobarDiagonales_2");
                     return true;
                 }
             }
@@ -202,46 +205,8 @@ public class Game {
         }
 
 
-
-
-
         return false;
     }
-
-
-/*
-    boolean comprobarDiagonales(int turno) {
-        int MAQUINA = 2;
-        String MAQUINASTR = "1111";
-        String JUGADORSTR = "2222";
-        String cadena = turno == MAQUINA ? MAQUINASTR : JUGADORSTR;
-
-        // derecha a izquierda
-        for (int i = 0; i < 3; i++) {
-            String str = "";
-            for (int k = 0; k < 6 - i; k++)
-                str += Integer.toString(tablero[i + k][k]);
-            if (str.contains(cadena)) {
-                log("Cumplo comprobarDiagonales_1");
-                return true;
-            }
-
-        }
-
-        // Teoricamente el resto
-        for (int j = 1; j < 4; j++) {
-            String str = "";
-            for (int k = 0; k < 7 - j; k++)
-                str += Integer.toString(tablero[k][j + k]);
-            if (str.contains(cadena)) {
-                log("Cumplo comprobarDiagonales_2");
-                return true;
-            }
-        }
-
-        return false;
-    }
-*/
 
     // Es solo para sacar el log
     private void log(String text) {
