@@ -32,9 +32,10 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game = new Game();
 
         setContentView(R.layout.activity_main);
+
+        game = new Game();
 
         ImageButton button;
         for (int y=0; y<SIZE_Y; y++)
@@ -44,6 +45,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
+        STATUS = 0;
     }
 
     // Nuevo Juego
@@ -85,7 +87,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // HUMAN
         if ( game.sePuedeColocarFicha( col, row ) ) {
-            log("Yo - pos " + Integer.toString(col) + "," + Integer.toString(row));
             game.putTablero(col, row, 1);
             dibujarTablero();
 
