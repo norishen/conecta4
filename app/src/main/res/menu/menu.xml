@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-<!-- CAMBIO 1 Aniadir menu -->
-    <item 
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
         android:title="@string/menuPreferences"
-        android:id="@+id/menuPreferences"
-        android:icon="@android:drawable/ic_menu_preferences"/>
-    
-   <item 
-        android:title="@string/menuAbout"
-        android:id="@+id/menuAbout"
-       />
+        android:id="@+id/menuPreferences"/>
+<!--        android:icon="@android:drawable/ic_menu_preferences" -->
+
+   <item
+       android:title="@string/menuAbout"
+       android:id="@+id/menuAbout" />
+<!--       android:icon="@android:drawable/ic_menu_preferences" -->
 
 </menu>
