@@ -50,6 +50,8 @@ public class MainActivity extends Activity implements OnClickListener {
     public void newGame(){
         game.restart();
         dibujarTablero();
+
+        STATUS = 0;
     }
 
 
@@ -90,12 +92,10 @@ public class MainActivity extends Activity implements OnClickListener {
             if (game.comprobarCuatro(1)) {
                 STATUS = 1;
 
-                String title = "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.";
-
+                String title = "¡¡Enhorabuena has ganado!!";
                 DialogPlayAgain wd = new DialogPlayAgain( title );
-                wd.show(getFragmentManager(),"PLAY_AGAIN" );
+                wd.show(getFragmentManager(), "PLAY_AGAIN");
 
-                Toast.makeText(this, title, Toast.LENGTH_LONG).show();
                 return;
             }
         } else {
@@ -110,7 +110,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
         if (game.comprobarCuatro(2)) {
             STATUS = 2;
-            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
+
+            String title = "Gana la maquina.";
+            DialogPlayAgain wd = new DialogPlayAgain( title );
+            wd.show(getFragmentManager(), "PLAY_AGAIN");
         }
     }
 
@@ -150,13 +153,15 @@ public class MainActivity extends Activity implements OnClickListener {
             for (int x=0; x<SIZE_X; x++){
                 int value = game.getTablero(y, x);
 
+                button = (ImageButton) findViewById(ids[y][x]);
                 if ( value != 0 ) {
-                    button = (ImageButton) findViewById(ids[y][x]);
                     if ( value == 1 )
                         button.setImageResource( R.drawable.c4_ficha_player1 );
                     else
                         button.setImageResource( R.drawable.c4_ficha_player2 );
                 }
+                else
+                    button.setImageResource( R.drawable.c4_sin_ficha);
             }
     }
 
