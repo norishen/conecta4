@@ -49,6 +49,7 @@ public class MainActivity extends Activity implements OnClickListener {
     // Nuevo Juego
     public void newGame(){
         game.restart();
+        dibujarTablero();
     }
 
 
@@ -94,7 +95,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 DialogPlayAgain wd = new DialogPlayAgain( title );
                 wd.show(getFragmentManager(),"PLAY_AGAIN" );
 
-                Toast.makeText(this, "Juego out, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, title, Toast.LENGTH_LONG).show();
                 return;
             }
         } else {

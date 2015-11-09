@@ -3,9 +3,12 @@
     <string name="titleH">Conecta 4</string>
     <string name="titleF"></string>
 
-    <string name="playAgain">Desea jugar de nuevo?</string>
     <string name="about">Acerca de</string>
     <string name="preferences">Ajustes</string>
+
+    <string name="playAgain">Desea jugar de nuevo?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
 
     <string name="bf1">boton01</string>
     <string name="bf2">boton02</string>
