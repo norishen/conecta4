@@ -1,7 +1,7 @@
 package org.wicbo5oel.conecta4;
 
 import android.app.Activity;
-import android.content.Intent;
+//import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +46,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     }
 
-    // Nuevo Juego;
+    // Nuevo Juego
     public void newGame(){
         game.restart();
     }
@@ -90,9 +90,8 @@ public class MainActivity extends Activity implements OnClickListener {
                 STATUS = 1;
 
                 String title = "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.";
-                String message = getResources().getString(R.string.playAgain);
 
-                WarnDialog wd = new WarnDialog( title, message);
+                DialogPlayAgain wd = new DialogPlayAgain( title );
                 wd.show(getFragmentManager(),"PLAY_AGAIN" );
 
                 Toast.makeText(this, "Juego out, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
