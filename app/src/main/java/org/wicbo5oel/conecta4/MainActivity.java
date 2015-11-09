@@ -45,15 +45,14 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
-        STATUS = 0;
     }
 
     // Nuevo Juego
     public void newGame(){
+        STATUS = 0;
+
         game.restart();
         dibujarTablero();
-
-        STATUS = 0;
     }
 
 

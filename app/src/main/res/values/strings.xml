@@ -1,19 +1,18 @@
 <resources>
     <string name="app_name">conecta4</string>
     <string name="titleH">Conecta 4</string>
-<!--    <string name="titleF"></string> -->
 
     <string name="invalidPos">Posición no valida</string>
 
     <string name="about">Acerca de</string>
     <string name="preferences">Ajustes</string>
 
-    <string name="youWin">¡ Enhorabuena, has ganado !</string>
+    <string name="youWin">¡Enhorabuena, has ganado!</string>
     <string name="youLose">La maquina ha ganado</string>
-    <string name="playAgain">Desea jugar de nuevo?</string>
+    <string name="playAgain">¿Quieres jugar de nuevo?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="gameEnd">Juego finalizado</string>
 
-    <string name="IBConecta4">Boton Imagen Conecta4</string>
+    <string name="IBConecta4">BotonImagen Conecta4</string>
 </resources>
