@@ -25,7 +25,7 @@ public class DialogPlayAgain extends DialogFragment {
 
         builder.setTitle(title)
                 .setMessage(R.string.playAgain)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -33,7 +33,7 @@ public class DialogPlayAgain extends DialogFragment {
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         caller.finish();
