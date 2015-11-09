@@ -18,7 +18,6 @@
         android:textSize="@dimen/dimenTitleH"
         android:textColor="@color/colorTitleH"
         android:background="@color/colorBTitleH"
-        android:elevation="4dp"
         android:text="@string/titleH"/>
 
 
@@ -31,150 +30,150 @@
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b11"
-            android:contentDescription="@string/b11" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b12"
-            android:contentDescription="@string/b12" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b13"
-            android:contentDescription="@string/b13" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b14"
-            android:contentDescription="@string/b14" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b15"
-            android:contentDescription="@string/b15" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b16"
-            android:contentDescription="@string/b16" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b17"
-            android:contentDescription="@string/b17" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
     <!--            Linea 2          -->
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b21"
-            android:contentDescription="@string/b21" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b22"
-            android:contentDescription="@string/b22" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b23"
-            android:contentDescription="@string/b23" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b24"
-            android:contentDescription="@string/b24" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b25"
-            android:contentDescription="@string/b25" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b26"
-            android:contentDescription="@string/b26" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b27"
-            android:contentDescription="@string/b27" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
     <!--            Linea 3          -->
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b31"
-            android:contentDescription="@string/b31" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b32"
-            android:contentDescription="@string/b32" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b33"
-            android:contentDescription="@string/b33" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b34"
-            android:contentDescription="@string/b34" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b35"
-            android:contentDescription="@string/b35" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b36"
-            android:contentDescription="@string/b36" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b37"
-            android:contentDescription="@string/b37" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
     <!--            Linea 4          -->
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b41"
-            android:contentDescription="@string/b41" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b42"
-            android:contentDescription="@string/b42" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b43"
-            android:contentDescription="@string/b43" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b44"
-            android:contentDescription="@string/b44" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b45"
-            android:contentDescription="@string/b45" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b46"
-            android:contentDescription="@string/b46" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b47"
-            android:contentDescription="@string/b47" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
     <!--            Linea 5          -->
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b51"
-            android:contentDescription="@string/b51" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b52"
-            android:contentDescription="@string/b52" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b53"
-            android:contentDescription="@string/b53" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b54"
-            android:contentDescription="@string/b54" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b55"
-            android:contentDescription="@string/b55" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b56"
-            android:contentDescription="@string/b56" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b57"
-            android:contentDescription="@string/b57" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
     <!--            Linea 6          -->
     <TableRow android:layout_weight="1">
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b61"
-            android:contentDescription="@string/b61" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b62"
-            android:contentDescription="@string/b62" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b63"
-            android:contentDescription="@string/b63" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b64"
-            android:contentDescription="@string/b64" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b65"
-            android:contentDescription="@string/b65" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b66"
-            android:contentDescription="@string/b66" />
+            android:contentDescription="@string/IBConecta4" />
         <ImageButton style="@style/C4SinFicha"
             android:id="@+id/b67"
-            android:contentDescription="@string/b67" />
+            android:contentDescription="@string/IBConecta4" />
     </TableRow>
 
 

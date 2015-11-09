@@ -76,7 +76,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     public void onClick(View v) {
         if (STATUS != 0) {
-            Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " ha ganado.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.gameEnd), Toast.LENGTH_LONG).show();
             return;
         }
 
