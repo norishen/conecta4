@@ -93,14 +93,14 @@ public class MainActivity extends Activity implements OnClickListener {
             if (game.comprobarCuatro(1)) {
                 STATUS = 1;
 
-                String title = "¡¡Enhorabuena has ganado!!";
+                String title = getResources().getString(R.string.youWin);
                 DialogPlayAgain wd = new DialogPlayAgain( title );
                 wd.show(getFragmentManager(), "PLAY_AGAIN");
 
                 return;
             }
         } else {
-            Toast.makeText(this, "Posicion no valida", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -112,7 +112,8 @@ public class MainActivity extends Activity implements OnClickListener {
         if (game.comprobarCuatro(2)) {
             STATUS = 2;
 
-            String title = "Gana la maquina.";
+            String title = getResources().getString(R.string.youLose);
+//            String title = "Gana la maquina.";
             DialogPlayAgain wd = new DialogPlayAgain( title );
             wd.show(getFragmentManager(), "PLAY_AGAIN");
         }
