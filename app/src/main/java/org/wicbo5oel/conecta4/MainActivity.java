@@ -1,7 +1,9 @@
 package org.wicbo5oel.conecta4;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -44,6 +46,28 @@ public class MainActivity extends Activity implements OnClickListener {
 
     }
 
+    // Nuevo Juego;
+    public void newGame(){
+        game.restart();
+    }
+
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.preferences:
+                Toast.makeText(this, "Test_Preferences", Toast.LENGTH_LONG).show();
+                return true;
+
+            case R.id.about:
+                Toast.makeText(this, "Test_About", Toast.LENGTH_LONG).show();
+                return true;
+        }
+
+        return super.onMenuItemSelected(featureId, item);
+    }
+
+
 
     public void onClick(View v) {
         if (STATUS != 0) {
@@ -51,7 +75,6 @@ public class MainActivity extends Activity implements OnClickListener {
             return;
         }
 
-//        int id = ((ImageButton) v).getId();
         int id = v.getId();
 
         int col = deIdentificadorAColumna(id);
@@ -65,7 +88,14 @@ public class MainActivity extends Activity implements OnClickListener {
 
             if (game.comprobarCuatro(1)) {
                 STATUS = 1;
-                Toast.makeText(this, "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
+
+                String title = "Juego terminado, juegador " + Integer.toString(STATUS) + " gana.";
+                String message = getResources().getString(R.string.playAgain);
+
+                WarnDialog wd = new WarnDialog( title, message);
+                wd.show(getFragmentManager(),"PLAY_AGAIN" );
+
+                Toast.makeText(this, "Juego out, juegador " + Integer.toString(STATUS) + " gana.", Toast.LENGTH_LONG).show();
                 return;
             }
         } else {

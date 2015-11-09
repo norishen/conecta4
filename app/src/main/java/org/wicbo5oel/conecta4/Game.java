@@ -13,6 +13,11 @@ public class Game {
 
 
     public Game(){
+        this.restart();
+    }
+
+    // Inicializo la matriz de juego
+    public void restart(){
         tablero = new int[SIZE_Y][SIZE_X];
 
         for ( int y=0; y <SIZE_Y; y++ )
