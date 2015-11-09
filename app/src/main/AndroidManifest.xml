@@ -20,6 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".About"
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:label="" >
+            <intent-filter>
+                <action android:name=".About" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

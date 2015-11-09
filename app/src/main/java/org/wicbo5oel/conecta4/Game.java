@@ -70,13 +70,9 @@ public class Game {
 
 
     boolean comprobarCuatro(int player) {
-        if (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player)) {
-            return true;
-        }
-        else
-            return false;
-
+        return (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player));
     }
+
 
     boolean comprobarFilas(int player) {
         int fichas = 0;

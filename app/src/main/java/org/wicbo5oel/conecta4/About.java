@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 /**
- * Created by jcc314 on 9/11/15.
+ * Creado por jcc314 on 9/11/15.
  */
 
 public class About extends Activity {

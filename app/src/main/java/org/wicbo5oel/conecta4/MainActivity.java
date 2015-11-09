@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
+        STATUS = 0;
     }
 
     // Nuevo Juego

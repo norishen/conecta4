@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 /**
- * Created by jcc314 on 9/11/15.
+ * Creado por jcc314 on 9/11/15.
  */
 public class DialogPlayAgain extends DialogFragment {
     String title;

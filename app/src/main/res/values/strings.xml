@@ -5,7 +5,13 @@
     <string name="invalidPos">Posición no valida</string>
 
     <string name="menuAbout">Acerca de</string>
-    <string name="about">Esto es el juego del Conecta4 que es una caña de España</string>
+    <string name="about">Conecta 4 es un juego de dos jugadores, humano
+                        contra la máquina. Cada jugador ha de colocar
+                        una ficha en una matriz de 6x7 posiciones.
+                        Solo se puede colocar ficha en la posición libre
+                        mas baja de cada columna. Gama el jugador que
+                        primero alinee cuatro fichas en fila, columna o
+                        diagonal.</string>
 
     <string name="menuPreferences">Ajustes</string>
 
