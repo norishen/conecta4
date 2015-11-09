@@ -2,7 +2,10 @@ package org.wicbo5oel.conecta4;
 
 import android.app.Activity;
 //import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -55,16 +58,23 @@ public class MainActivity extends Activity implements OnClickListener {
         dibujarTablero();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.preferences:
+            case R.id.menuPreferences:
                 Toast.makeText(this, "Test_Preferences", Toast.LENGTH_LONG).show();
                 return true;
 
-            case R.id.about:
-                Toast.makeText(this, "Test_About", Toast.LENGTH_LONG).show();
+            case R.id.menuAbout:
+                startActivity(new Intent(this, About.class));
                 return true;
         }
 

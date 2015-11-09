@@ -4,8 +4,10 @@
 
     <string name="invalidPos">Posición no valida</string>
 
-    <string name="about">Acerca de</string>
-    <string name="preferences">Ajustes</string>
+    <string name="menuAbout">Acerca de</string>
+    <string name="about">Esto es el juego del Conecta4 que es una caña de España</string>
+
+    <string name="menuPreferences">Ajustes</string>
 
     <string name="youWin">¡Enhorabuena, has ganado!</string>
     <string name="youLose">La maquina ha ganado</string>
