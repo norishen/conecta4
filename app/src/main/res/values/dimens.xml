@@ -6,4 +6,5 @@
     <dimen name="dimenTitleH">30dp</dimen>
     <dimen name="dimenTitleF">30dp</dimen>
     <dimen name="ficha">42dp</dimen>
+    <dimen name="ficha2">62dp</dimen>
 </resources>

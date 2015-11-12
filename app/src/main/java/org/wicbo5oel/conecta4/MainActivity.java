@@ -102,6 +102,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
             if (game.comprobarCuatro(1)) {
                 STATUS = 1;
+                dibujarGanador();
 
                 String title = getResources().getString(R.string.youWin);
                 DialogPlayAgain wd = new DialogPlayAgain( title );
@@ -109,6 +110,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
                 return;
             }
+
         } else {
             Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
             return;
@@ -121,12 +123,14 @@ public class MainActivity extends Activity implements OnClickListener {
 
         if (game.comprobarCuatro(2)) {
             STATUS = 2;
+            dibujarGanador();
 
             String title = getResources().getString(R.string.youLose);
 //            String title = "Gana la maquina.";
             DialogPlayAgain wd = new DialogPlayAgain( title );
             wd.show(getFragmentManager(), "PLAY_AGAIN");
         }
+
     }
 
 
@@ -174,6 +178,23 @@ public class MainActivity extends Activity implements OnClickListener {
                 }
                 else
                     button.setImageResource( R.drawable.c4_sin_ficha);
+            }
+    }
+
+    private void dibujarGanador(){
+        ImageButton button;
+
+        for (int y=0; y<SIZE_Y; y++)
+            for (int x=0; x<SIZE_X; x++){
+                int value = game.getGanador(y, x);
+
+                button = (ImageButton) findViewById(ids[y][x]);
+                if ( value != 0 ) {
+                    if ( value == 1 )
+                        button.setImageResource( R.drawable.c4_ficha_player1_gana );
+                    else
+                        button.setImageResource( R.drawable.c4_ficha_player2_gana );
+                }
             }
     }
 

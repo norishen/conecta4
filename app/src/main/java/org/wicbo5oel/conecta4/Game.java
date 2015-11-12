@@ -10,6 +10,7 @@ public class Game {
     static final int SIZE_X = 7;
 
     private int tablero[][];
+    private int ganador[][];
 
 
     public Game(){
@@ -19,15 +20,29 @@ public class Game {
     // Inicializo la matriz de juego
     public void restart(){
         tablero = new int[SIZE_Y][SIZE_X];
+        ganador = new int[SIZE_Y][SIZE_X];
 
         for ( int y=0; y <SIZE_Y; y++ )
-            for ( int x=0; x< SIZE_X; x++ )
+            for ( int x=0; x< SIZE_X; x++ ) {
                 tablero[y][x] = 0;
+                ganador[y][x] = 0;
+            }
     }
 
     // Retorna en contenido de la posicion pedida
     public int getTablero(int i, int j) {
         return tablero[i][j];
+    }
+
+    // Retorna en contenido de la posicion pedida
+    public int getGanador(int i, int j) {
+        return ganador[i][j];
+    }
+
+    public void borraGanador(){
+        for ( int y=0; y <SIZE_Y; y++ )
+            for ( int x=0; x< SIZE_X; x++ )
+                ganador[y][x] = 0;
     }
 
     // Coloca una ficha en el, tablero
@@ -79,8 +94,10 @@ public class Game {
 
         for (int y = 0; y < SIZE_Y; y++) {
             for (int x = 0; x < SIZE_X; x++) {
-                if (tablero[y][x] == player)
+                if (tablero[y][x] == player) {
                     fichas++;
+                    ganador[y][x] = player;
+                }
                 else
                     fichas = 0;
 
@@ -88,6 +105,10 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int x=0; x < SIZE_X; x++)
+                ganador[y][x] = 0;
+
             fichas = 0;
         }
 
@@ -100,8 +121,10 @@ public class Game {
 
         for (int x = 0; x < SIZE_X; x++) {
             for (int y = 0; y < SIZE_Y; y++) {
-                if (tablero[y][x] == player)
+                if (tablero[y][x] == player) {
                     fichas++;
+                    ganador[y][x] = player;
+                }
                 else
                     fichas = 0;
 
@@ -109,6 +132,9 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int y=0; y < SIZE_Y; y++)
+                ganador[y][x] = 0;
 
             fichas = 0;
         }
@@ -127,8 +153,9 @@ public class Game {
         for (int y = 3; y < SIZE_Y; y++) {
             for (int x = 0; x <= y; x++) {
 //                log("Player" + Integer.toString(player) + " - pruebo0 [" + Integer.toString(y - x) + "," + Integer.toString(x) + "]");
-                if (tablero[y - x][x] == player) {
+                if (tablero[y-x][x] == player) {
                     fichas++;
+                    ganador[y-x][x] = player;
                 }
                 else
                     fichas = 0;
@@ -137,6 +164,10 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int x = 0; x <= y; x++)
+                ganador[y-x][x] = 0;
+
             fichas = 0;
         }
 
@@ -145,8 +176,9 @@ public class Game {
         for (int y = 3; y < SIZE_Y; y++) {
             for (int x = 0; x <= y; x++) {
 //                log("Player" + Integer.toString(player) + " - pruebo1 [" + Integer.toString(y - x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
-                if (tablero[y - x][(SIZE_X - 1) - x] == player) {
+                if (tablero[y-x][(SIZE_X-1) - x] == player) {
                     fichas++;
+                    ganador[y-x][(SIZE_X-1) - x] = player;
                 } else
                     fichas = 0;
 
@@ -154,6 +186,10 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int x = 0; x <= y; x++)
+                ganador[y-x][(SIZE_X-1) - x] = 0;
+
             fichas = 0;
         }
 
@@ -164,8 +200,10 @@ public class Game {
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < (SIZE_X - 1) - y; x++) {
 //                log("Player" + Integer.toString(player) + " - pruebo2 [" + Integer.toString(y + x) + "," + Integer.toString(x) + "]");
-                if (tablero[y + x][x] == player)
+                if (tablero[y+x][x] == player) {
                     fichas++;
+                    ganador[y+x][x] = player;
+                }
                 else
                     fichas = 0;
 
@@ -173,6 +211,10 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int x = 0; x < (SIZE_X - 1) - y; x++)
+                ganador[y+x][x] = 0;
+
             fichas = 0;
 
         }
@@ -181,8 +223,10 @@ public class Game {
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < (SIZE_X - 1) - y; x++) {
 //                log("Player" + Integer.toString(player) + " - pruebo3 [" + Integer.toString(y + x) + "," + Integer.toString((SIZE_X - 1) - x) + "]");
-                if (tablero[y + x][(SIZE_X - 1) - x] == player)
+                if (tablero[y+x][(SIZE_X-1) - x] == player) {
                     fichas++;
+                    ganador[y+x][(SIZE_X-1) - x] = player;
+                }
                 else
                     fichas = 0;
 
@@ -190,6 +234,10 @@ public class Game {
                     return true;
                 }
             }
+            // Borro contadores de estado
+            for (int x = 0; x < (SIZE_X - 1) - y; x++)
+                ganador[y+x][(SIZE_X-1) - x] = 0;
+
             fichas = 0;
 
         }
