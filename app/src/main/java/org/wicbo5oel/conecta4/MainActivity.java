@@ -32,7 +32,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private String namePlayer[];
     //---------------------------------------------------------
 
-    private int turnoJuego = 1;
+    private int turnoJuego;
 
     private final int statusHeader = R.id.statusHeader;
 
@@ -53,6 +53,7 @@ public class MainActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_main);
 
         game = new Game();
+        namePlayer = new String[2];
 
         ImageButton button;
         for (int y=0; y<SIZE_Y; y++)
@@ -62,25 +63,33 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
-        tipoJuego = 2;
-        namePlayer = new String[2];
-        namePlayer[0] = "Jugador 1";
-        namePlayer[1] = "Maquina";
+        tipoJuego = 1;
+        namePlayer[0] = getResources().getString(R.string.player1);
+
+        if ( tipoJuego == 1 )
+            namePlayer[1] = getResources().getString(R.string.playerCPU);
+        else
+            namePlayer[1] = getResources().getString(R.string.player2);
+
 
         STATUS = 0;
+        turnoJuego = 1;
         statusTurnoJuego();
     }
 
     // Nuevo Juego
     public void newGame(){
-        STATUS = 0;
         tipoJuego = 1;
-        namePlayer[0] = "Jugador 1";
-        namePlayer[1] = "Maquina";
+        if ( tipoJuego == 1 )
+            namePlayer[1] = getResources().getString(R.string.playerCPU);
+        else
+            namePlayer[1] = getResources().getString(R.string.player2);
 
         game.restart();
         dibujarTablero();
 
+        STATUS = 0;
+        turnoJuego = 1;
         statusTurnoJuego();
     }
 
@@ -155,8 +164,6 @@ public class MainActivity extends Activity implements OnClickListener {
             String title = getResources().getString(R.string.playerWin)+" "+namePlayer[turnoJuego-1];
             DialogPlayAgain wd = new DialogPlayAgain( title );
             wd.show(getFragmentManager(), "PLAY_AGAIN");
-
-//            return;
         }
 
 
@@ -214,32 +221,31 @@ public class MainActivity extends Activity implements OnClickListener {
                 int value = game.getTablero(y, x);
 
                 button = (ImageButton) findViewById(ids[y][x]);
-                if ( value != 0 ) {
-                    if ( value == 1 )
-                        button.setImageResource( R.drawable.c4_ficha_player1 );
-                    else
-                        button.setImageResource( R.drawable.c4_ficha_player2 );
-                }
+                if ( value != 0 )
+                    button.setImageResource( getResources().getIdentifier("c4_ficha_player"+Integer.toString(value),"drawable",getPackageName() ) );
                 else
-                    button.setImageResource( R.drawable.c4_sin_ficha);
+                    button.setImageResource( R.drawable.c4_sin_ficha );
             }
     }
 
-    private void dibujarGanador(){
+    private void dibujarGanador() {
         ImageButton button;
 
-        for (int y=0; y<SIZE_Y; y++)
-            for (int x=0; x<SIZE_X; x++){
-                int value = game.getGanador(y, x);
+        log("Turno: " + Integer.toString(turnoJuego));
 
-                button = (ImageButton) findViewById(ids[y][x]);
-                if ( value != 0 ) {
-                    if ( value == 1 )
-                        button.setImageResource( R.drawable.c4_ficha_player1_gana );
-                    else
-                        button.setImageResource( R.drawable.c4_ficha_player2_gana );
+        for (int y = 0; y < SIZE_Y; y++)
+            for (int x = 0; x < SIZE_X; x++)
+                if ( game.getGanador(y, x) == turnoJuego ) {
+                    log("[" + Integer.toString(y) + "," + Integer.toString(x) + "]");
+
+                    button = (ImageButton) findViewById(ids[y][x]);
+//                    button.setImageResource( getResources().getIdentifier("c4_ficha_player" + Integer.toString(turnoJuego) + "_gana", "drawable", getPackageName()) );
+                    button.setImageResource( R.drawable.c4_ficha_player2_gana );
                 }
-            }
+
+
+
+
     }
 
 

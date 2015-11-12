@@ -18,6 +18,10 @@
     <string name="playerRun">Turno de</string>
     <string name="playerWin">Gana</string>
 
+    <string name="player1">Jugador 1</string>
+    <string name="player2">Jugador 2</string>
+    <string name="playerCPU">Maquina</string>
+
     <string name="playAgain">¿Otra partida?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
