@@ -39,11 +39,6 @@ public class Game {
         return ganador[i][j];
     }
 
-    public void borraGanador(){
-        for ( int y=0; y <SIZE_Y; y++ )
-            for ( int x=0; x< SIZE_X; x++ )
-                ganador[y][x] = 0;
-    }
 
     // Coloca una ficha en el, tablero
     public void putTablero(int i, int j, int player) {
