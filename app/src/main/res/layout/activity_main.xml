@@ -6,12 +6,12 @@
     android:background="@color/colorFondo"
     android:stretchColumns="*">
 
-
     <!-- Header -->
     <TextView
         android:layout_weight="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/statusHeader"
         android:gravity="center"
         android:fontFamily="Arial"
         android:textStyle="bold"
@@ -179,8 +179,16 @@
 
     <!-- Foot -->
     <TextView
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@color/colorFondo2"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/statusFooter"
+        android:gravity="center"
+        android:fontFamily="Arial"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimenTitleF"
+        android:textColor="@color/colorTitleF"
+        android:background="@color/colorBTitleF"/>
+
  </TableLayout>
 

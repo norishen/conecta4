@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="dimenTitleH">30dp</dimen>
-    <dimen name="dimenTitleF">30dp</dimen>
+    <dimen name="dimenTitleF">20dp</dimen>
     <dimen name="ficha">42dp</dimen>
     <dimen name="ficha2">62dp</dimen>
 </resources>

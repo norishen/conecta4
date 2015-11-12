@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
@@ -23,6 +24,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
     static int STATUS = 0;
 
+    //---------------------------------------------------------
+    // Candidatos a preferencias
+    //---------------------------------------------------------
+    // tipos: 1 humano/maquina, 2: humano/humano
+    private int tipoJuego;
+    private String namePlayer[];
+    //---------------------------------------------------------
+
+    private int turnoJuego = 1;
+
+    private final int statusHeader = R.id.statusHeader;
+
     private final int ids [][] = {
             {R.id.b11, R.id.b12, R.id.b13, R.id.b14, R.id.b15, R.id.b16, R.id.b17},
             {R.id.b21, R.id.b22, R.id.b23, R.id.b24, R.id.b25, R.id.b26, R.id.b27},
@@ -31,6 +44,7 @@ public class MainActivity extends Activity implements OnClickListener {
             {R.id.b51, R.id.b52, R.id.b53, R.id.b54, R.id.b55, R.id.b56, R.id.b57},
             {R.id.b61, R.id.b62, R.id.b63, R.id.b64, R.id.b65, R.id.b66, R.id.b67}};
 
+    private final int statusFooter = R.id.statusFooter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +62,26 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
+        tipoJuego = 2;
+        namePlayer = new String[2];
+        namePlayer[0] = "Jugador 1";
+        namePlayer[1] = "Maquina";
+
         STATUS = 0;
+        statusTurnoJuego();
     }
 
     // Nuevo Juego
     public void newGame(){
         STATUS = 0;
+        tipoJuego = 1;
+        namePlayer[0] = "Jugador 1";
+        namePlayer[1] = "Maquina";
 
         game.restart();
         dibujarTablero();
+
+        statusTurnoJuego();
     }
 
     @Override
@@ -95,42 +120,61 @@ public class MainActivity extends Activity implements OnClickListener {
         int col = deIdentificadorAColumna(id);
         int row = deIdentificadorAFila(id);
 
+
         // HUMAN
-        if ( game.sePuedeColocarFicha( col, row ) ) {
-            game.putTablero(col, row, 1);
+        if (game.sePuedeColocarFicha(col, row)) {
+            game.putTablero(col, row, turnoJuego);
+
             dibujarTablero();
-
-            if (game.comprobarCuatro(1)) {
-                STATUS = 1;
-                dibujarGanador();
-
-                String title = getResources().getString(R.string.youWin);
-                DialogPlayAgain wd = new DialogPlayAgain( title );
-                wd.show(getFragmentManager(), "PLAY_AGAIN");
-
-                return;
-            }
-
+            comprobarJugada();
         } else {
             Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
             return;
         }
 
-
         // COMPUTER
-        game.juegaMaquina();
-        dibujarTablero();
+        if (tipoJuego == 1) {
+            game.juegaMaquina();
+            dibujarTablero();
 
-        if (game.comprobarCuatro(2)) {
-            STATUS = 2;
+            comprobarJugada();
+        }
+    }
+
+
+    public void comprobarJugada(){
+        TextView statusH = (TextView) findViewById(statusHeader);
+        TextView statusF = (TextView) findViewById(statusFooter);
+
+        if (game.comprobarCuatro(turnoJuego)) {
+            STATUS = turnoJuego;
             dibujarGanador();
 
-            String title = getResources().getString(R.string.youLose);
-//            String title = "Gana la maquina.";
+            // Informacion de jugador ganador
+
+            String title = getResources().getString(R.string.playerWin)+" "+namePlayer[turnoJuego-1];
             DialogPlayAgain wd = new DialogPlayAgain( title );
             wd.show(getFragmentManager(), "PLAY_AGAIN");
+
+//            return;
         }
 
+
+        if ( turnoJuego == 1 )
+            turnoJuego = 2;
+        else
+            turnoJuego = 1;
+
+        statusTurnoJuego();
+    }
+
+
+    private void statusTurnoJuego(){
+        TextView statusH = (TextView) findViewById(statusHeader);
+        TextView statusF = (TextView) findViewById(statusFooter);
+
+        // Informacion de proximo jugador
+        statusF.setText( getResources().getString(R.string.playerRun)+" "+namePlayer[turnoJuego-1] );
     }
 
 
