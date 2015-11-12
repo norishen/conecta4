@@ -142,7 +142,7 @@ public class MainActivity extends Activity implements OnClickListener {
         }
 
         // COMPUTER
-        if (tipoJuego == 1) {
+        if (tipoJuego == 1 && STATUS == 0) {
             game.juegaMaquina();
             dibujarTablero();
 
@@ -236,11 +236,13 @@ public class MainActivity extends Activity implements OnClickListener {
         for (int y = 0; y < SIZE_Y; y++)
             for (int x = 0; x < SIZE_X; x++)
                 if ( game.getGanador(y, x) == turnoJuego ) {
-                    log("[" + Integer.toString(y) + "," + Integer.toString(x) + "]");
-
                     button = (ImageButton) findViewById(ids[y][x]);
-//                    button.setImageResource( getResources().getIdentifier("c4_ficha_player" + Integer.toString(turnoJuego) + "_gana", "drawable", getPackageName()) );
-                    button.setImageResource( R.drawable.c4_ficha_player2_gana );
+
+                    // NOTA
+                    // La linea inferior equivale a poner el recurso directamente lo que
+                    // permite cierto dinamismo, pues podemos convertir variables numericas
+                    // y crear la cadena de Id que necesita set<uno>Resource( R.deawable.c4_ficha_player(1 o 2)_gana )
+                    button.setImageResource( getResources().getIdentifier("c4_ficha_player" + Integer.toString(turnoJuego) + "_gana", "drawable", getPackageName()) );
                 }
 
 
