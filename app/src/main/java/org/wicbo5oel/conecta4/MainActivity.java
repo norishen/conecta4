@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
@@ -159,26 +160,35 @@ public class MainActivity extends Activity implements OnClickListener {
             STATUS = turnoJuego;
             dibujarGanador();
 
-            // Informacion de jugador ganador
+//            //  GONE (8) - INVISIBLE (4) - VISIBLE (0)
+//            TextView statusText = (TextView)findViewById(R.id.statusFooter);
+//            TableRow statusTable = (TableRow)findViewById(R.id.tableFooter);
+//
+//            statusText.setVisibility(TextView.INVISIBLE);
+//            statusTable.setVisibility(TableRow.VISIBLE);
 
+            // Informacion de jugador ganador
             String title = getResources().getString(R.string.playerWin)+" "+namePlayer[turnoJuego-1];
+//            statusH.setText( title );
+
             DialogPlayAgain wd = new DialogPlayAgain( title );
             wd.show(getFragmentManager(), "PLAY_AGAIN");
+        } else {
+
+            if (turnoJuego == 1)
+                turnoJuego = 2;
+            else
+                turnoJuego = 1;
+
+            statusTurnoJuego();
         }
-
-
-        if ( turnoJuego == 1 )
-            turnoJuego = 2;
-        else
-            turnoJuego = 1;
-
-        statusTurnoJuego();
     }
 
 
     private void statusTurnoJuego(){
         TextView statusH = (TextView) findViewById(statusHeader);
         TextView statusF = (TextView) findViewById(statusFooter);
+
 
         // Informacion de proximo jugador
         statusF.setText( getResources().getString(R.string.playerRun)+" "+namePlayer[turnoJuego-1] );
