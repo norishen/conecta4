@@ -49,6 +49,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private final int statusFooter = R.id.statusFooter;
 
+    private int score1;
+    private int score2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +78,8 @@ public class MainActivity extends Activity implements OnClickListener {
             namePlayer[1] = getResources().getString(R.string.player2);
         }
 
+        score1 = 0;
+        score2 = 0;
 
         STATUS = 0;
         turnoJuego = 1;
@@ -95,10 +100,10 @@ public class MainActivity extends Activity implements OnClickListener {
         game.restart();
         dibujarTablero();
 
-        ImageButton statusB1 = (ImageButton)findViewById(R.id.b1Foot);
-        ImageButton statusB2 = (ImageButton)findViewById(R.id.b2Foot);
-        statusB1.setVisibility(TableRow.INVISIBLE);
-        statusB2.setVisibility(TableRow.INVISIBLE);
+        ImageButton statusB = (ImageButton)findViewById(R.id.b1Foot);
+        statusB.setVisibility(TableRow.INVISIBLE);
+        statusB = (ImageButton)findViewById(R.id.b2Foot);
+        statusB.setVisibility(TableRow.INVISIBLE);
 
         STATUS = 0;
         turnoJuego = 1;
@@ -181,6 +186,16 @@ public class MainActivity extends Activity implements OnClickListener {
             String title = getResources().getString(R.string.playerWin)+" "+namePlayer[turnoJuego-1];
             statusH.setText( title );
             statusF.setText( getResources().getString(R.string.playAgain) );
+
+            if ( turnoJuego == 1 ) {
+                TextView statusScore = (TextView)findViewById(R.id.score1);
+                score1++;
+                statusScore.setText( String.format("%02d", score1) );
+            } else {
+                TextView statusScore = (TextView)findViewById(R.id.score2);
+                score2++;
+                statusScore.setText( String.format("%02d", score2) );
+            }
 
 //            DialogPlayAgain wd = new DialogPlayAgain( title );
 //            wd.show(getFragmentManager(), "PLAY_AGAIN");
