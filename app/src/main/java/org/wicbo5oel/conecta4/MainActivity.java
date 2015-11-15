@@ -110,6 +110,10 @@ public class MainActivity extends Activity implements OnClickListener {
         statusTurnoJuego();
     }
 
+
+    //-----------------------------------------------------------------------------------
+    // Menus
+    //-----------------------------------------------------------------------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -132,9 +136,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
         return super.onMenuItemSelected(featureId, item);
     }
+    //-----------------------------------------------------------------------------------
 
 
-
+    //-----------------------------------------------------------------------------------
+    // Botones
+    //-----------------------------------------------------------------------------------
     public void onClick(View v) {
         if (STATUS != 0) {
             Toast.makeText(this, getResources().getString(R.string.gameEnd), Toast.LENGTH_LONG).show();
@@ -167,7 +174,19 @@ public class MainActivity extends Activity implements OnClickListener {
         }
     }
 
+    public void buttonGameBack(View v){
+        finish();
+    }
 
+    public void buttonGameAgain(View v){
+        newGame();
+    }
+    //-----------------------------------------------------------------------------------
+
+
+    //-----------------------------------------------------------------------------------
+    // Logica del juego
+    //-----------------------------------------------------------------------------------
     public void comprobarJugada(){
         TextView statusH = (TextView) findViewById(statusHeader);
         TextView statusF = (TextView) findViewById(statusFooter);
@@ -285,6 +304,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
     }
+    //-----------------------------------------------------------------------------------
 
 
     private void log(String text) {

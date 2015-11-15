@@ -217,6 +217,7 @@
             android:id="@+id/b1Foot"
             android:gravity="center"
             android:layout_gravity="center|left"
+            android:onClick="buttonGameBack"
             android:contentDescription="@string/IBConecta4" />
 
         <TextView android:layout_weight="8"
@@ -240,6 +241,7 @@
             android:id="@+id/b2Foot"
             android:gravity="center"
             android:layout_gravity="center|right"
+            android:onClick="buttonGameAgain"
             android:contentDescription="@string/IBConecta4" />
 
         </LinearLayout>
