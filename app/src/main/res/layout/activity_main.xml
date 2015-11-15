@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
@@ -178,16 +177,47 @@
 
 
     <!-- Foot -->
-    <TextView android:layout_weight="1"
+<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" -->
+
+    <LinearLayout android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/statusFooter"
-        android:gravity="center"
-        android:fontFamily="Arial"
-        android:textStyle="bold"
-        android:textSize="@dimen/dimenTitleF"
-        android:textColor="@color/colorTitleF"
-        android:background="@color/colorBTitleF"/>
+        android:background="@color/colorBTitleF">
+
+        <ImageButton android:layout_weight="1"
+            android:layout_width="@dimen/ficha"
+            android:layout_height="@dimen/ficha"
+            android:visibility="invisible"
+            android:background="@drawable/back_icon"
+            android:id="@+id/b1Foot"
+            android:gravity="center"
+            android:layout_gravity="center|left"
+            android:contentDescription="@string/IBConecta4" />
+
+        <TextView android:layout_weight="6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:id="@+id/statusFooter"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="Arial"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimenTitleF"
+            android:textColor="@color/colorTitleF"
+            android:background="@color/colorBTitleF"/>
+
+        <ImageButton android:layout_weight="1"
+            android:layout_width="@dimen/ficha"
+            android:layout_height="@dimen/ficha"
+            android:visibility="invisible"
+            android:background="@drawable/ok_icon"
+            android:id="@+id/b2Foot"
+            android:gravity="center"
+            android:layout_gravity="center|right"
+            android:contentDescription="@string/IBConecta4" />
+
+        </LinearLayout>
 
  </TableLayout>
 

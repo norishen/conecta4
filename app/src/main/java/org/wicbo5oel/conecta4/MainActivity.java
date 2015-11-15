@@ -9,7 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,12 +67,13 @@ public class MainActivity extends Activity implements OnClickListener {
                 }
 
         tipoJuego = 1;
-        namePlayer[0] = getResources().getString(R.string.player1);
-
-        if ( tipoJuego == 1 )
+        if ( tipoJuego == 1 ) {
+            namePlayer[0] = getResources().getString(R.string.playerHUMAN);
             namePlayer[1] = getResources().getString(R.string.playerCPU);
-        else
+        } else {
+            namePlayer[0] = getResources().getString(R.string.player1);
             namePlayer[1] = getResources().getString(R.string.player2);
+        }
 
 
         STATUS = 0;
@@ -81,13 +84,21 @@ public class MainActivity extends Activity implements OnClickListener {
     // Nuevo Juego
     public void newGame(){
         tipoJuego = 1;
-        if ( tipoJuego == 1 )
+        if ( tipoJuego == 1 ) {
+            namePlayer[0] = getResources().getString(R.string.playerHUMAN);
             namePlayer[1] = getResources().getString(R.string.playerCPU);
-        else
+        } else {
+            namePlayer[0] = getResources().getString(R.string.player1);
             namePlayer[1] = getResources().getString(R.string.player2);
+        }
 
         game.restart();
         dibujarTablero();
+
+        ImageButton statusB1 = (ImageButton)findViewById(R.id.b1Foot);
+        ImageButton statusB2 = (ImageButton)findViewById(R.id.b2Foot);
+        statusB1.setVisibility(TableRow.INVISIBLE);
+        statusB2.setVisibility(TableRow.INVISIBLE);
 
         STATUS = 0;
         turnoJuego = 1;
@@ -160,19 +171,19 @@ public class MainActivity extends Activity implements OnClickListener {
             STATUS = turnoJuego;
             dibujarGanador();
 
-//            //  GONE (8) - INVISIBLE (4) - VISIBLE (0)
-//            TextView statusText = (TextView)findViewById(R.id.statusFooter);
-//            TableRow statusTable = (TableRow)findViewById(R.id.tableFooter);
-//
-//            statusText.setVisibility(TextView.INVISIBLE);
-//            statusTable.setVisibility(TableRow.VISIBLE);
+            //  GONE (8) - INVISIBLE (4) - VISIBLE (0)
+            ImageButton statusB1 = (ImageButton)findViewById(R.id.b1Foot);
+            ImageButton statusB2 = (ImageButton)findViewById(R.id.b2Foot);
+            statusB1.setVisibility(TableRow.VISIBLE);
+            statusB2.setVisibility(TableRow.VISIBLE);
 
             // Informacion de jugador ganador
             String title = getResources().getString(R.string.playerWin)+" "+namePlayer[turnoJuego-1];
-//            statusH.setText( title );
+            statusH.setText( title );
+            statusF.setText( getResources().getString(R.string.playAgain) );
 
-            DialogPlayAgain wd = new DialogPlayAgain( title );
-            wd.show(getFragmentManager(), "PLAY_AGAIN");
+//            DialogPlayAgain wd = new DialogPlayAgain( title );
+//            wd.show(getFragmentManager(), "PLAY_AGAIN");
         } else {
 
             if (turnoJuego == 1)
