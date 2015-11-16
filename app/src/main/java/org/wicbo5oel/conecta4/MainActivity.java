@@ -114,7 +114,15 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     // Exit Game
-    public void exitGame(String title){
+    public void exitGame(){
+        String title;
+
+        if ( STATUS == 0 )
+            title = getResources().getString(R.string.exitGame);
+        else
+            title = getResources().getString(R.string.exitScore);
+
+
         DialogExit wd = new DialogExit( title );
         wd.show(getFragmentManager(), "EXIT");
     }
@@ -135,8 +143,8 @@ public class MainActivity extends Activity implements OnClickListener {
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuExit:
-                String title = getResources().getString(R.string.exitGame);
-                exitGame(title);
+  //              String title = getResources().getString(R.string.exitGame);
+                exitGame();
                 return true;
 
             case R.id.menuAbout:
@@ -186,14 +194,14 @@ public class MainActivity extends Activity implements OnClickListener {
 
     // Button: Android Back
     public void onBackPressed() {
-        String title = getResources().getString(R.string.exitGame);
-        exitGame(title);
+//        String title = getResources().getString(R.string.exitGame);
+        exitGame();
     }
 
     // Option Button: Exit Game
     public void buttonGameBack(View v){
-        String title = getResources().getString(R.string.exitScore);
-        exitGame(title);
+//        String title = getResources().getString(R.string.exitScore);
+        exitGame();
     }
 
     // Option Button: New game
