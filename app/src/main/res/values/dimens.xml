@@ -9,5 +9,5 @@
     <dimen name="dimenTitleH">30dp</dimen>
     <dimen name="dimenTitleF">20dp</dimen>
     <dimen name="dimenScore">20dp</dimen>
-    <dimen name="ficha">42dp</dimen>
+    <dimen name="ficha">40dp</dimen>
 </resources>

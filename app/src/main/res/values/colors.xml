@@ -12,7 +12,7 @@
     <color name="colorBTitleH">#FF93BAFF</color>
     <color name="colorLineaH">#FF000000</color>
 
-    <color name="colorTitleF">#FF000000</color>
+    <color name="colorTitleF">#FFFFFFFF</color>
     <color name="colorBTitleF">#FF93BAFF</color>
     <color name="colorLineaF">#FF000000</color>
 
