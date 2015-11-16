@@ -215,9 +215,6 @@ public class MainActivity extends Activity implements OnClickListener {
                 score2++;
                 statusScore.setText( String.format("%02d", score2) );
             }
-
-//            DialogPlayAgain wd = new DialogPlayAgain( title );
-//            wd.show(getFragmentManager(), "PLAY_AGAIN");
         } else {
 
             if (turnoJuego == 1)

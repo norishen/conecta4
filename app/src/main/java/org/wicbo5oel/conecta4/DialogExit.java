@@ -7,36 +7,35 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 /**
- * Creado por jcc314 on 9/11/15.
+ * Creado por jcc314 on 16/11/15.
  */
-public class DialogPlayAgain extends DialogFragment {
+public class DialogExit extends DialogFragment {
     String title;
 
-    public DialogPlayAgain( String title ){
+    public DialogExit( String title ){
         super();
         this.title = title;
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final MainActivity caller = (MainActivity)getActivity();
+        final Initial caller = (Initial)getActivity();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle(title)
-                .setMessage(R.string.playAgain)
+                .setMessage(R.string.exitGameSure)
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        caller.newGame();
+                        caller.finish();
                         dialog.dismiss();
                     }
                 })
                 .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        caller.finish();
                         dialog.dismiss();
                     }
                 });

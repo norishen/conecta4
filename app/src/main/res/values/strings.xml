@@ -23,6 +23,9 @@
     <string name="player1">Jugador 1</string>
     <string name="player2">Jugador 2</string>
 
+    <string name="exitGame">Abondonar el juego</string>
+    <string name="exitGameSure">¿Estas seguro?</string>
+
     <string name="playAgain">¿Otra partida?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
