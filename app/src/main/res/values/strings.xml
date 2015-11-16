@@ -13,7 +13,7 @@
                         primero alinee cuatro fichas en fila, columna o
                         diagonal.</string>
 
-    <string name="menuPreferences">Ajustes</string>
+    <string name="menuExit">Abandonar</string>
 
     <string name="playerRun">Turno de</string>
     <string name="playerWin">Gana</string>
@@ -23,7 +23,9 @@
     <string name="player1">Jugador 1</string>
     <string name="player2">Jugador 2</string>
 
-    <string name="exitGame">Abondonar el juego</string>
+    <string name="exitApp">Salir del juego</string>
+    <string name="exitScore">Se perdera la puntuacion</string>
+    <string name="exitGame">Abondonar la partida en curso</string>
     <string name="exitGameSure">¿Estas seguro?</string>
 
     <string name="playAgain">¿Otra partida?</string>

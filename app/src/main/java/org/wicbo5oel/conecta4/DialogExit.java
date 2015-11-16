@@ -1,5 +1,6 @@
 package org.wicbo5oel.conecta4;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -19,7 +20,8 @@ public class DialogExit extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final Initial caller = (Initial)getActivity();
+//        final Initial caller = (Initial)getActivity();
+        final Activity caller = (Activity)getActivity();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 

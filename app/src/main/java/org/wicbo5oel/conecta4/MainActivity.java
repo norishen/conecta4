@@ -110,6 +110,12 @@ public class MainActivity extends Activity implements OnClickListener {
         statusTurnoJuego();
     }
 
+    // Salir del juego
+    public void exitGame(String title){
+        DialogExit wd = new DialogExit( title );
+        wd.show(getFragmentManager(), "EXIT");
+    }
+
 
     //-----------------------------------------------------------------------------------
     // Menus
@@ -125,8 +131,9 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menuPreferences:
-                Toast.makeText(this, "Test_Preferences", Toast.LENGTH_LONG).show();
+            case R.id.menuExit:
+                String title = getResources().getString(R.string.exitGame);
+                exitGame(title);
                 return true;
 
             case R.id.menuAbout:
@@ -174,10 +181,20 @@ public class MainActivity extends Activity implements OnClickListener {
         }
     }
 
-    public void buttonGameBack(View v){
-        finish();
+    // Button: Android Back
+    public void onBackPressed() {
+        String title = getResources().getString(R.string.exitGame);
+        exitGame(title);
     }
 
+    // Option Button: Exit Game
+    public void buttonGameBack(View v){
+        String title = getResources().getString(R.string.exitScore);
+        exitGame(title);
+//        finish();
+    }
+
+    // Option Button: New game
     public void buttonGameAgain(View v){
         newGame();
     }

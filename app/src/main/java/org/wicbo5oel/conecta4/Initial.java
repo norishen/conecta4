@@ -42,12 +42,22 @@ public class Initial extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.initialB3:
-                String title = getResources().getString(R.string.exitGame);
-
-                DialogExit wd = new DialogExit( title );
-                wd.show(getFragmentManager(), "EXIT");
+                exitGame();
                 break;
         }
 
+    }
+
+    // Button: Android Back
+    public void onBackPressed() {
+        exitGame();
+    }
+
+    // Salir del juego
+    public void exitGame(){
+        String title = getResources().getString(R.string.exitApp);
+
+        DialogExit wd = new DialogExit( title );
+        wd.show(getFragmentManager(), "EXIT");
     }
 }
