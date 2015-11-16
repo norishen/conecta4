@@ -243,10 +243,10 @@
                 android:layout_height="@dimen/ficha"
                 android:layout_gravity="center|start"
                 android:layout_margin="10dp"
-                android:visibility="invisible"
-                android:background="@drawable/back_icon"
                 android:id="@+id/b1Foot"
                 android:onClick="buttonGameBack"
+                android:visibility="invisible"
+                android:background="@drawable/minus_300px"
                 android:contentDescription="@string/IBConecta4" />
 
             <TextView  android:layout_weight="2"
@@ -266,10 +266,10 @@
                 android:layout_height="@dimen/ficha"
                 android:layout_gravity="center|end"
                 android:layout_margin="10dp"
-                android:visibility="invisible"
-                android:background="@drawable/ok_icon"
                 android:id="@+id/b2Foot"
                 android:onClick="buttonGameAgain"
+                android:visibility="invisible"
+                android:background="@drawable/plus_300px"
                 android:contentDescription="@string/IBConecta4" />
 
         </LinearLayout>

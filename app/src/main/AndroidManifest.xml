@@ -17,16 +17,15 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".MainActivity" >
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name=".MainActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".About"
+        <activity android:name=".About"
             android:theme="@android:style/Theme.Holo.Dialog"
             android:label="" >
             <intent-filter>
