@@ -4,7 +4,12 @@
 
     <string name="invalidPos">Posición no valida</string>
 
-    <string name="menuAbout">Acerca de</string>
+    <string name="menu0Start">Nuevo Juego</string>
+    <string name="menu0Preferences">Opciones</string>
+    <string name="menu0Exit">Salir</string>
+
+    <string name="menu1About">Acerca de</string>
+    <string name="menu1Exit">Abandonar</string>
     <string name="about">Conecta 4 es un juego de dos jugadores, humano
                         contra la máquina. Cada jugador ha de colocar
                         una ficha en una matriz de 6x7 posiciones.
@@ -13,7 +18,6 @@
                         primero alinee cuatro fichas en fila, columna o
                         diagonal.</string>
 
-    <string name="menuExit">Abandonar</string>
 
     <string name="playerRun">Turno de</string>
     <string name="playerWin">Gana</string>

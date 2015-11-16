@@ -191,7 +191,6 @@ public class MainActivity extends Activity implements OnClickListener {
     public void buttonGameBack(View v){
         String title = getResources().getString(R.string.exitScore);
         exitGame(title);
-//        finish();
     }
 
     // Option Button: New game
