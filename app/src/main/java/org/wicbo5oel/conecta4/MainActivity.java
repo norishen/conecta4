@@ -69,6 +69,11 @@ public class MainActivity extends Activity implements OnClickListener {
                     button.setOnClickListener(this);
                 }
 
+        score1 = 0;
+        score2 = 0;
+
+        newGame();
+/*
         tipoJuego = 1;
         if ( tipoJuego == 1 ) {
             namePlayer[0] = getResources().getString(R.string.playerHUMAN);
@@ -78,15 +83,13 @@ public class MainActivity extends Activity implements OnClickListener {
             namePlayer[1] = getResources().getString(R.string.player2);
         }
 
-        score1 = 0;
-        score2 = 0;
-
         STATUS = 0;
         turnoJuego = 1;
         statusTurnoJuego();
+*/
     }
 
-    // Nuevo Juego
+    // New Game
     public void newGame(){
         tipoJuego = 1;
         if ( tipoJuego == 1 ) {
@@ -110,7 +113,7 @@ public class MainActivity extends Activity implements OnClickListener {
         statusTurnoJuego();
     }
 
-    // Salir del juego
+    // Exit Game
     public void exitGame(String title){
         DialogExit wd = new DialogExit( title );
         wd.show(getFragmentManager(), "EXIT");
