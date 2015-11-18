@@ -2,14 +2,11 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
 
-    <!--
-        <solid android:color="@color/fichaPlayer2" />
-    -->
-
     <gradient
-        android:startColor="@color/fichaGana"
-        android:endColor="@color/fichaPlayer2"
-        android:gradientRadius="35"
+        android:id="@+id/juegoFicha3"
+        android:startColor="@android:color/white"
+        android:endColor="@color/fichaColor4"
+        android:gradientRadius="50"
         android:type="radial" />
 
     <size

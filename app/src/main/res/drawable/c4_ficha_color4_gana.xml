@@ -8,7 +8,7 @@
 
     <gradient
         android:startColor="@color/fichaGana"
-        android:endColor="@color/fichaPlayer2"
+        android:endColor="@color/fichaColor4"
         android:gradientRadius="35"
         android:type="radial" />
 

@@ -7,7 +7,7 @@
 -->
 
         <gradient
-            android:startColor="#FFFFFFFF"
+            android:startColor="@android:color/white"
             android:endColor="@color/fichaPlayer2"
             android:gradientRadius="50"
             android:type="radial" />

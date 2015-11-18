@@ -4,10 +4,10 @@
 
 <!--
     <solid android:color="@color/fichaPlayer1" />
--->#
+-->
 
         <gradient
-            android:startColor="#FFFFFFFF"
+            android:startColor="@android:color/white"
             android:endColor="@color/fichaPlayer1"
             android:gradientRadius="50"
             android:type="radial" />

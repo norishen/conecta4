@@ -19,4 +19,10 @@
     <color name="sinFicha">#FFFFFFFF</color>
     <color name="fichaPlayer1">#FFFFAE00</color>
     <color name="fichaPlayer2">#FFFF0000</color>
+    <color name="fichaGana">#FF00FF00</color>
+
+    <color name="fichaColor1">#FFFFAE00</color>
+    <color name="fichaColor2">#FFFF0000</color>
+    <color name="fichaColor3">#FF8D20AE</color>
+    <color name="fichaColor4">#FFFF95EB</color>
 </resources>

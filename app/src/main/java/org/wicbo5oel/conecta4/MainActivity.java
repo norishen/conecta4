@@ -2,7 +2,13 @@ package org.wicbo5oel.conecta4;
 
 import android.app.Activity;
 //import android.content.Intent;
+import android.app.Application;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +22,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
+
 
 /**
  * Clase principal
@@ -51,6 +58,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private int score1;
     private int score2;
+
+    private int colorPlayer1;
+    private int colorPlayer2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +102,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
     // New Game
     public void newGame(){
+        //--------------------------------------------
+        // Properties
+        //--------------------------------------------
         tipoJuego = 1;
         if ( tipoJuego == 1 ) {
             namePlayer[0] = getResources().getString(R.string.playerHUMAN);
@@ -99,6 +113,12 @@ public class MainActivity extends Activity implements OnClickListener {
             namePlayer[0] = getResources().getString(R.string.player1);
             namePlayer[1] = getResources().getString(R.string.player2);
         }
+
+        // Colores por defecto
+        colorPlayer1=1;
+        colorPlayer2=4;
+        //--------------------------------------------
+
 
         game.restart();
         dibujarTablero();
@@ -300,10 +320,17 @@ public class MainActivity extends Activity implements OnClickListener {
                 int value = game.getTablero(y, x);
 
                 button = (ImageButton) findViewById(ids[y][x]);
-                if ( value != 0 )
-                    button.setImageResource( getResources().getIdentifier("c4_ficha_player"+Integer.toString(value),"drawable",getPackageName() ) );
-                else
-                    button.setImageResource( R.drawable.c4_sin_ficha );
+                switch ( value ) {
+                    case 0:
+                        button.setImageResource(R.drawable.c4_sin_ficha);
+                        break;
+                    case 1:
+                        button.setImageResource(getResources().getIdentifier("c4_ficha_color" + Integer.toString(colorPlayer1), "drawable", getPackageName()));
+                        break;
+                    case 2:
+                        button.setImageResource(getResources().getIdentifier("c4_ficha_color" + Integer.toString(colorPlayer2), "drawable", getPackageName()));
+                        break;
+                }
             }
     }
 
@@ -321,7 +348,18 @@ public class MainActivity extends Activity implements OnClickListener {
                     // La linea inferior equivale a poner el recurso directamente lo que
                     // permite cierto dinamismo, pues podemos convertir variables numericas
                     // y crear la cadena de Id que necesita set<uno>Resource( R.deawable.c4_ficha_player(1 o 2)_gana )
-                    button.setImageResource( getResources().getIdentifier("c4_ficha_player" + Integer.toString(turnoJuego) + "_gana", "drawable", getPackageName()) );
+                    switch ( turnoJuego ) {
+                        case 0:
+                            button.setImageResource(R.drawable.c4_sin_ficha);
+                            break;
+                        case 1:
+                            button.setImageResource(getResources().getIdentifier("c4_ficha_color" + Integer.toString(colorPlayer1) + "_gana", "drawable", getPackageName()));
+                            break;
+                        case 2:
+                            button.setImageResource(getResources().getIdentifier("c4_ficha_color" + Integer.toString(colorPlayer2) + "_gana", "drawable", getPackageName()));
+                            break;
+                    }
+
                 }
 
 
