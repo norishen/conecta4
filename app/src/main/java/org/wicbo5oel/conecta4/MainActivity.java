@@ -4,12 +4,14 @@ import android.app.Activity;
 //import android.content.Intent;
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -62,7 +64,9 @@ public class MainActivity extends Activity implements OnClickListener {
     private int colorPlayer1;
     private int colorPlayer2;
 
-
+    //--------------------------------------------------------------
+    // CICLO DE VIDA
+    //--------------------------------------------------------------
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,22 +88,136 @@ public class MainActivity extends Activity implements OnClickListener {
         score2 = 0;
 
         newGame();
-/*
-        tipoJuego = 1;
-        if ( tipoJuego == 1 ) {
-            namePlayer[0] = getResources().getString(R.string.playerHUMAN);
-            namePlayer[1] = getResources().getString(R.string.playerCPU);
-        } else {
-            namePlayer[0] = getResources().getString(R.string.player1);
-            namePlayer[1] = getResources().getString(R.string.player2);
-        }
-
-        STATUS = 0;
-        turnoJuego = 1;
-        statusTurnoJuego();
-*/
     }
 
+    // omResume
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Boolean play = false;
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (sharedPreferences.contains(CCCPreference.PLAY_MUSIC_KEY))
+            play = sharedPreferences.getBoolean(CCCPreference.PLAY_MUSIC_KEY,CCCPreference.PLAY_MUSIC_DEFAULT);
+
+        if ( play )
+            Music.play(this, R.raw.funkandblues);
+
+        if (sharedPreferences.contains(CCCPreference.PLAYER_KEY))
+            namePlayer[0] = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
+
+        dibujarTablero();
+    }
+
+    // onPause
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Music.stop(this);
+    }
+
+    @Override
+    public void onSaveInstanceState (Bundle outState) {
+        outState.putString("TABLERO", game.tableroToString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onRestoreInstanceState (Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        String grid = savedInstanceState.getString("TABLERO");
+        game.stringToTablero(grid);
+
+        dibujarTablero();
+    }
+
+    //-----------------------------------------------------------------------------------
+    // Menus
+    //-----------------------------------------------------------------------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu1About:
+                startActivity(new Intent(this, About.class));
+                return true;
+
+            case R.id.menu1Settings:
+                startActivity(new Intent(this, CCCPreference.class));
+
+        }
+
+        return super.onMenuItemSelected(featureId, item);
+    }
+    //-----------------------------------------------------------------------------------
+
+
+
+    // Option Button: Exit Game
+    public void buttonGameBack(View v){
+        exitGame();
+    }
+
+    // Option Button: New game
+    public void buttonGameAgain(View v){
+        newGame();
+    }
+
+
+    //-----------------------------------------------------------------------------------
+    // Botones
+    //-----------------------------------------------------------------------------------
+
+    // Button: Android Back
+    public void onBackPressed() {
+        exitGame();
+    }
+
+    // Gestion de las pulsaciones
+    public void onClick(View v) {
+        if (STATUS != 0) {
+            Toast.makeText(this, getResources().getString(R.string.gameEnd), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        int id = v.getId();
+
+        int col = deIdentificadorAColumna(id);
+        int row = deIdentificadorAFila(id);
+
+
+        // HUMAN
+        if (game.sePuedeColocarFicha(col, row)) {
+            game.putTablero(col, row, turnoJuego);
+
+            dibujarTablero();
+            comprobarJugada();
+        } else {
+            Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // COMPUTER
+        if (tipoJuego == 1 && STATUS == 0) {
+            game.juegaMaquina();
+            dibujarTablero();
+
+            comprobarJugada();
+        }
+    }
+    //-----------------------------------------------------------------------------------
+
+
+    //---------------------------------------------------
     // New Game
     public void newGame(){
         //--------------------------------------------
@@ -107,7 +225,11 @@ public class MainActivity extends Activity implements OnClickListener {
         //--------------------------------------------
         tipoJuego = 1;
         if ( tipoJuego == 1 ) {
-            namePlayer[0] = getResources().getString(R.string.playerHUMAN);
+            if ( getPlayerName().equals( "" ) )
+                namePlayer[0] = getResources().getString(R.string.playerHUMAN);
+            else
+                namePlayer[0] = getPlayerName();
+
             namePlayer[1] = getResources().getString(R.string.playerCPU);
         } else {
             namePlayer[0] = getResources().getString(R.string.player1);
@@ -146,87 +268,17 @@ public class MainActivity extends Activity implements OnClickListener {
         DialogExit wd = new DialogExit( title );
         wd.show(getFragmentManager(), "EXIT");
     }
-
-
-    //-----------------------------------------------------------------------------------
-    // Menus
-    //-----------------------------------------------------------------------------------
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menuExit:
-  //              String title = getResources().getString(R.string.exitGame);
-                exitGame();
-                return true;
-
-            case R.id.menuAbout:
-                startActivity(new Intent(this, About.class));
-                return true;
-        }
-
-        return super.onMenuItemSelected(featureId, item);
-    }
     //-----------------------------------------------------------------------------------
 
 
     //-----------------------------------------------------------------------------------
-    // Botones
-    //-----------------------------------------------------------------------------------
-    public void onClick(View v) {
-        if (STATUS != 0) {
-            Toast.makeText(this, getResources().getString(R.string.gameEnd), Toast.LENGTH_LONG).show();
-            return;
-        }
+    // Recupero preferencias
 
-        int id = v.getId();
+    public String getPlayerName(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        int col = deIdentificadorAColumna(id);
-        int row = deIdentificadorAFila(id);
-
-
-        // HUMAN
-        if (game.sePuedeColocarFicha(col, row)) {
-            game.putTablero(col, row, turnoJuego);
-
-            dibujarTablero();
-            comprobarJugada();
-        } else {
-            Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        // COMPUTER
-        if (tipoJuego == 1 && STATUS == 0) {
-            game.juegaMaquina();
-            dibujarTablero();
-
-            comprobarJugada();
-        }
-    }
-
-    // Button: Android Back
-    public void onBackPressed() {
-//        String title = getResources().getString(R.string.exitGame);
-        exitGame();
-    }
-
-    // Option Button: Exit Game
-    public void buttonGameBack(View v){
-//        String title = getResources().getString(R.string.exitScore);
-        exitGame();
-    }
-
-    // Option Button: New game
-    public void buttonGameAgain(View v){
-        newGame();
+        String name = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
+        return name;
     }
     //-----------------------------------------------------------------------------------
 

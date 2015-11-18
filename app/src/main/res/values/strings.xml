@@ -9,7 +9,7 @@
     <string name="menu0Exit">Salir</string>
 
     <string name="menu1About">Acerca de</string>
-    <string name="menu1Exit">Abandonar</string>
+    <string name="menu1Settings">Preferencias</string>
     <string name="about">Conecta 4 es un juego de dos jugadores, humano
                         contra la máquina. Cada jugador ha de colocar
                         una ficha en una matriz de 6x7 posiciones.
@@ -36,6 +36,18 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="gameEnd">Juego finalizado</string>
+
+    <!-- Settings -->
+    <string name="firstCategoryPrefTitle">Datos personales</string>
+    <string name="editTextPrefTitle">Nombre del jugador</string>
+    <string name="editTextPrefSummary">Pulse para teclear el nombre del jugador</string>
+    <string name="secondCategoryPrefTitle">Ajustes del juego</string>
+    <string name="checBoxPrefTitle">Música de fondo</string>
+    <string name="checBoxPrefSummary">Marque si desea escuchar música</string>
+
+    <string name="listPrefTitle">Color ficha Player1</string>
+    <string name="listPrefSummary">Pulse para mostrar la lista</string>
+    <string name="listPrefDialogTitle">Elija el color de la ficha</string>
 
     <string name="IBConecta4">BotonImagen Conecta4</string>
 </resources>

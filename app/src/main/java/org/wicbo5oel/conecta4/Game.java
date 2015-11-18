@@ -17,6 +17,21 @@ public class Game {
         this.restart();
     }
 
+
+    public String tableroToString() {
+        String str = "";
+        for (int y=0; y < SIZE_Y; y++)
+            for (int x = 0; x < SIZE_X; x++)
+                str += tablero[y][x];
+        return str;
+    }
+
+    public void stringToTablero(String str) {
+        for (int y = 0, cont = 0; y < SIZE_Y; y++)
+            for (int x = 0; x < SIZE_X; x++)
+                tablero[y][x] = str.charAt(cont++) - '0';
+    }
+
     // Inicializo la matriz de juego
     public void restart(){
         tablero = new int[SIZE_Y][SIZE_X];

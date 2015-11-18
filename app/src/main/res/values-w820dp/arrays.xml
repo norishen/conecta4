@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="figures">
+        <item>Completo</item>
+        <item>Circulo</item>
+        <item>Anillo</item>
+    </string-array>
+    <string-array name="figureCodes">
+        <item>0011100001110011111111110111111111100111000011100</item>
+        <item>0000000001110001111100110110011111000111000000000</item>
+        <item>0000000001110001101100100010011011000111000000000</item>
+    </string-array>
+</resources>
