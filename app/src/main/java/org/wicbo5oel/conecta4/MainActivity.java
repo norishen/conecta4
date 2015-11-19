@@ -250,6 +250,9 @@ public class MainActivity extends Activity implements OnClickListener {
         statusB = (ImageButton)findViewById(R.id.b2Foot);
         statusB.setVisibility(TableRow.INVISIBLE);
 
+        TextView statusH = (TextView) findViewById(statusHeader);
+        statusH.setText( getResources().getString( R.string.titleH));
+
         STATUS = 0;
         turnoJuego = 1;
         statusTurnoJuego();
@@ -327,7 +330,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
     private void statusTurnoJuego(){
-        TextView statusH = (TextView) findViewById(statusHeader);
         TextView statusF = (TextView) findViewById(statusFooter);
 
 

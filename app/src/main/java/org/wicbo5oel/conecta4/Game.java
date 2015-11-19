@@ -18,6 +18,8 @@ public class Game {
     }
 
 
+    //--------------------------------------
+    // Serializa/Deserializa Tablero
     public String tableroToString() {
         String str = "";
         for (int y=0; y < SIZE_Y; y++)
@@ -31,6 +33,8 @@ public class Game {
             for (int x = 0; x < SIZE_X; x++)
                 tablero[y][x] = str.charAt(cont++) - '0';
     }
+    //--------------------------------------
+
 
     // Inicializo la matriz de juego
     public void restart(){
@@ -75,7 +79,11 @@ public class Game {
         return out;
     }
 
+    //------------------------------------------------------------
     // Le toca a la maquina Jugar
+    //
+    // Se tienen que implementar IA... ¿minimax?
+    //------------------------------------------------------------
     public void juegaMaquina(){
         int outy=SIZE_Y, outx=0;
 
@@ -94,6 +102,9 @@ public class Game {
     }
 
 
+    //----------------------------------------------------------------------------
+    // Comprobar juegada. Filas, columna, Diagonales
+    //----------------------------------------------------------------------------
     boolean comprobarCuatro(int player) {
         return (comprobarFilas(player) || comprobarColumnas(player) || comprobarDiagonales(player));
     }
@@ -255,6 +266,8 @@ public class Game {
 
         return false;
     }
+    //----------------------------------------------------------------------------
+
 
     // Es solo para sacar el log
     private void log(String text) {
