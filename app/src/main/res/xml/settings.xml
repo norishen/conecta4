@@ -13,6 +13,12 @@
             android:title="@string/checBoxPrefTitle"
             android:summary="@string/checBoxPrefSummary"/>
 
+        <EditTextPreference
+            android:key="nivelDificultad"
+            android:title="Nivel Dificultad"
+            android:numeric="integer"
+            android:maxLength="1"
+            android:summary="Nivel de dificultad" />
 <!--
         <ListPreference
             android:key="figure"

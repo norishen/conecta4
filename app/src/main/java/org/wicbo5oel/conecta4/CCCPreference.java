@@ -10,6 +10,8 @@ public class CCCPreference extends Activity {
 	public final static boolean PLAY_MUSIC_DEFAULT = true;
 	public final static String PLAYER_KEY = "playerName";
 	public final static String PLAYER_DEFAULT = "Humano";
+	public final static String DIFICULTAD_KEY = "nivelDificultad";
+	public final static String DIFICULTAD_DEFAULT = "3";
     public final static String FIGURE_KEY = "figure";
 	public final static String FIGURE_DEFAULT = "completo";
 

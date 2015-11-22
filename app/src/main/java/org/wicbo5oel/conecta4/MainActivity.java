@@ -64,6 +64,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private int colorPlayer1;
     private int colorPlayer2;
 
+
     //--------------------------------------------------------------
     // CICLO DE VIDA
     //--------------------------------------------------------------
@@ -194,6 +195,12 @@ public class MainActivity extends Activity implements OnClickListener {
         int col = deIdentificadorAColumna(id);
         int row = deIdentificadorAFila(id);
 
+        for ( int y=(SIZE_Y-1); y>=0; y-- )
+            if ( game.sePuedeColocarFicha( y, row ) ) {
+                col = y;
+                break;
+            }
+
 
         // HUMAN
         if (game.sePuedeColocarFicha(col, row)) {
@@ -248,6 +255,8 @@ public class MainActivity extends Activity implements OnClickListener {
         colorPlayer2=2;
         //--------------------------------------------
 
+        int nivelDificultad = getnivelDificultad();
+        game.putDificultad( nivelDificultad );
 
         game.restart();
         dibujarTablero();
@@ -258,7 +267,7 @@ public class MainActivity extends Activity implements OnClickListener {
         statusB.setVisibility(TableRow.INVISIBLE);
 
         TextView statusH = (TextView) findViewById(statusHeader);
-        statusH.setText( getResources().getString( R.string.titleH));
+        statusH.setText( getResources().getString( R.string.titleH)+" ["+Integer.toString(nivelDificultad)+"]");
 
         STATUS = 0;
         turnoJuego = 1;
@@ -289,6 +298,13 @@ public class MainActivity extends Activity implements OnClickListener {
 
         String name = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
         return name;
+    }
+
+    public int getnivelDificultad(){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String nivel = sharedPreferences.getString(CCCPreference.DIFICULTAD_KEY, CCCPreference.DIFICULTAD_DEFAULT);
+        return Integer.valueOf(nivel);
     }
     //-----------------------------------------------------------------------------------
 

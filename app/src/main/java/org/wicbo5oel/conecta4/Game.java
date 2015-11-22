@@ -13,7 +13,7 @@ public class Game {
     private int ganador[][];
 
 
-    private int iaMaxProfundidad = 5;
+    private int iaMaxProfundidad = 3;
 
     //-------------------------------------------
     // CONSTRUCTOR
@@ -41,6 +41,14 @@ public class Game {
                 ganador[y][x] = 0;
             }
     }
+
+    //-------------------------------------------
+    // Coloca una ficha en el, tablero
+    //
+    public void putDificultad(int i) {
+        iaMaxProfundidad = i;
+    }
+
 
     //-------------------------------------------
     // Coloca una ficha en el, tablero
@@ -328,21 +336,13 @@ public class Game {
     // Buscamos el mejor movimiento de la CPU
     //
     public void mueveIA(){
-/*
-        int aux, mejor=-9999;
-
-        int alpha=-9999;
-        int beta=9999;
-*/
         int mejorY=0;
         int mejorX=0;
         int max, max_actual;
 
         log("Entro IA");
-        iaMaxProfundidad = 5;
 
         max = Integer.MIN_VALUE;
-
         for ( int y=0; y<SIZE_Y; y++ )
             for ( int x=0; x<SIZE_X; x++ )
                 if ( sePuedeColocarFicha( y, x) ) {
