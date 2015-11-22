@@ -103,7 +103,7 @@ public class MainActivity extends Activity implements OnClickListener {
             play = sharedPreferences.getBoolean(CCCPreference.PLAY_MUSIC_KEY,CCCPreference.PLAY_MUSIC_DEFAULT);
 
         if ( play )
-            Music.play(this, R.raw.funkandblues);
+            Music.play(this, R.raw.funkandblues, true);
 
         if (sharedPreferences.contains(CCCPreference.PLAYER_KEY))
             namePlayer[0] = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
@@ -197,10 +197,13 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // HUMAN
         if (game.sePuedeColocarFicha(col, row)) {
+            log( "Empieza juego HUMANO");
             game.putTablero(col, row, turnoJuego);
 
             dibujarTablero();
             comprobarJugada();
+
+            log( "Ha jugado HUMANO");
         } else {
             Toast.makeText(this, getResources().getString(R.string.invalidPos), Toast.LENGTH_LONG).show();
             return;
@@ -208,7 +211,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // COMPUTER
         if (tipoJuego == 1 && STATUS == 0) {
-            game.juegaMaquina();
+            log( "Empieza juego CPU");
+            // game.juegaMaquina();
+            game.mueveIA();
+            log( "Ha jugado CPU");
+
             dibujarTablero();
 
             comprobarJugada();
@@ -238,7 +245,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
         // Colores por defecto
         colorPlayer1=1;
-        colorPlayer2=4;
+        colorPlayer2=2;
         //--------------------------------------------
 
 
@@ -293,6 +300,7 @@ public class MainActivity extends Activity implements OnClickListener {
         TextView statusH = (TextView) findViewById(statusHeader);
         TextView statusF = (TextView) findViewById(statusFooter);
 
+        log( "Compruebo: " + Integer.toString(turnoJuego ));
         if (game.comprobarCuatro(turnoJuego)) {
             STATUS = turnoJuego;
             dibujarGanador();
@@ -369,6 +377,7 @@ public class MainActivity extends Activity implements OnClickListener {
     private void dibujarTablero(){
         ImageButton button;
 
+        log( "Dibujo Tablero");
         for (int y=0; y<SIZE_Y; y++)
             for (int x=0; x<SIZE_X; x++){
                 int value = game.getTablero(y, x);
@@ -392,7 +401,6 @@ public class MainActivity extends Activity implements OnClickListener {
         ImageButton button;
 
         log("Turno: " + Integer.toString(turnoJuego));
-
         for (int y = 0; y < SIZE_Y; y++)
             for (int x = 0; x < SIZE_X; x++)
                 if ( game.getGanador(y, x) == turnoJuego ) {

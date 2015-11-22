@@ -6,9 +6,9 @@ import android.media.MediaPlayer;
 public class Music {
 	private static MediaPlayer player;
 
-	public static void play(Context context, int id) {
+	public static void play(Context context, int id, boolean looping) {
 		player = MediaPlayer.create(context, id);
-		player.setLooping(true);
+		player.setLooping(looping);
 		player.start();
 	}
 
