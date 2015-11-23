@@ -18,7 +18,7 @@
             android:title="Nivel Dificultad"
             android:numeric="integer"
             android:maxLength="1"
-            android:summary="Nivel de dificultad" />
+            android:summary="Introduzca un numero entre 0 y 9" />
 <!--
         <ListPreference
             android:key="figure"
