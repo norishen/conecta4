@@ -100,14 +100,14 @@ public class MainActivity extends Activity implements OnClickListener {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if (sharedPreferences.contains(CCCPreference.PLAY_MUSIC_KEY))
-            play = sharedPreferences.getBoolean(CCCPreference.PLAY_MUSIC_KEY,CCCPreference.PLAY_MUSIC_DEFAULT);
+        if (sharedPreferences.contains(Preferences1.PLAY_MUSIC_KEY))
+            play = sharedPreferences.getBoolean(Preferences1.PLAY_MUSIC_KEY,Preferences1.PLAY_MUSIC_DEFAULT);
 
         if ( play )
             Music.play(this, R.raw.funkandblues, true);
 
-        if (sharedPreferences.contains(CCCPreference.PLAYER_KEY))
-            namePlayer[0] = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
+        if (sharedPreferences.contains( Preferences0.PLAYER_KEY ))
+            namePlayer[0] = sharedPreferences.getString( Preferences0.PLAYER_KEY, Preferences0.PLAYER_DEFAULT );
 
         dibujarTablero();
     }
@@ -153,7 +153,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 return true;
 
             case R.id.menu1Settings:
-                startActivity(new Intent(this, CCCPreference.class));
+                startActivity(new Intent(this, Preferences1.class));
 
         }
 
@@ -296,14 +296,14 @@ public class MainActivity extends Activity implements OnClickListener {
     public String getPlayerName(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String name = sharedPreferences.getString(CCCPreference.PLAYER_KEY, CCCPreference.PLAYER_DEFAULT);
+        String name = sharedPreferences.getString(Preferences0.PLAYER_KEY, Preferences0.PLAYER_DEFAULT);
         return name;
     }
 
     public int getnivelDificultad(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String nivel = sharedPreferences.getString(CCCPreference.DIFICULTAD_KEY, CCCPreference.DIFICULTAD_DEFAULT);
+        String nivel = sharedPreferences.getString(Preferences0.DIFICULTAD_KEY, Preferences0.DIFICULTAD_DEFAULT);
         return Integer.valueOf(nivel);
     }
     //-----------------------------------------------------------------------------------

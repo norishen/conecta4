@@ -38,7 +38,7 @@ public class Initial extends Activity implements View.OnClickListener {
                 break;
 
             case R.id.initialB2:
-                Toast.makeText(this, "Si, si propiedades...", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this, Preferences0.class));
                 break;
 
             case R.id.initialB3:

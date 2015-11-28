@@ -36,18 +36,17 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="gameEnd">Juego finalizado</string>
-
-    <!-- Settings -->
-    <string name="firstCategoryPrefTitle">Datos personales</string>
-    <string name="editTextPrefTitle">Nombre del jugador</string>
-    <string name="editTextPrefSummary">Pulse para teclear el nombre del jugador</string>
-    <string name="secondCategoryPrefTitle">Ajustes del juego</string>
-    <string name="checBoxPrefTitle">Música de fondo</string>
-    <string name="checBoxPrefSummary">Marque si desea escuchar música</string>
-
-    <string name="listPrefTitle">Color ficha Player1</string>
-    <string name="listPrefSummary">Pulse para mostrar la lista</string>
-    <string name="listPrefDialogTitle">Elija el color de la ficha</string>
-
     <string name="IBConecta4">BotonImagen Conecta4</string>
+
+
+    <!-- Preferences -->
+    <string name="prfCategory1">Datos personales</string>
+    <string name="prfTitPlayerName">Nombre del jugador</string>
+    <string name="prfSumPlayerName">Pulse para teclear el nombre del jugador</string>
+
+    <string name="prfCategory2">Ajustes del juego</string>
+    <string name="prfTitleMusic">Música de fondo</string>
+    <string name="prfSumMusic">Marque si desea escuchar música</string>
+    <string name="prfTitleLevel">Nivel de dificultad</string>
+    <string name="prfSumLevel">Introduzca un numero entre 0 y 9</string>
 </resources>

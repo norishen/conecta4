@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/prfCategory1">
+        <EditTextPreference
+            android:key="playerName"
+            android:title="@string/prfTitPlayerName"
+            android:summary="@string/prfSumPlayerName" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/prfCategory2">
+        <CheckBoxPreference
+            android:key="music"
+            android:title="@string/prfTitleMusic"
+            android:summary="@string/prfSumMusic"/>
+
+        <EditTextPreference
+            android:key="nivelDificultad"
+            android:title="@string/prfTitleLevel"
+            android:numeric="integer"
+            android:maxLength="1"
+            android:summary="@string/prfSumLevel" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
